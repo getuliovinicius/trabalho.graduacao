@@ -1,0 +1,7 @@
+# Documentacao
+/docs/site/
+
+# Arquivos
+.lock
+.bak
+.directory
