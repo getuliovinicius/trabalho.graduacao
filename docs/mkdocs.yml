@@ -1,6 +1,12 @@
 site_name: TG - Getúlio Vinicius
 site_description: Documentação do Projeto de Software ...
 site_author: Getúlio Vinicius <getuliovinits@gmail.com>
+google_analytics: ['UA-70830801-13', 'auto']
+repo_url: https://github.com/getuliovinicius/trabalho.graduacao
+repo_name: GitHub
+edit_uri: blob/master/docs/mds/
+remote_branch: gh-pages
+remote_name: origin
 docs_dir: 'mds'
 pages:
     - Inicio: index.md
