@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2018-02-20</lastmod>
+     <loc>https://getuliovinicius.github.io/trabalho.graduacao//</loc>
+     <lastmod>2018-02-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,18 +12,14 @@
     
         
     <url>
-     <loc>/tema-1/00-introducao/</loc>
-     <lastmod>2018-02-20</lastmod>
+     <loc>https://getuliovinicius.github.io/trabalho.graduacao//doc-desenvolvimento/1-requisitos/</loc>
+     <lastmod>2018-02-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
-    
-
-    
-        
     <url>
-     <loc>/tema-2/00-introducao/</loc>
-     <lastmod>2018-02-20</lastmod>
+     <loc>https://getuliovinicius.github.io/trabalho.graduacao//doc-desenvolvimento/2-modelagem/</loc>
+     <lastmod>2018-02-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -32,8 +28,18 @@
     
         
     <url>
-     <loc>/tema-3/00-introducao/</loc>
-     <lastmod>2018-02-20</lastmod>
+     <loc>https://getuliovinicius.github.io/trabalho.graduacao//doc-instalacao/00-introducao/</loc>
+     <lastmod>2018-02-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://getuliovinicius.github.io/trabalho.graduacao//doc-usuario-final/00-introducao/</loc>
+     <lastmod>2018-02-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
