@@ -1,9 +1,6 @@
-Trabalho de Graduação
-=====================
+Orçamento Pessoal - tgGV
+========================
 
-## Sumário
+## Sobre
 
-+ Temas:
-    + [Tema 1](tema-1/00-introducao.md)
-    + [Tema 2](tema-2/00-introducao.md)
-    + [Tema 3](tema-3/00-introducao.md)
+Orçamento Pessoal - tgGV, é um software livre desenvolvido como Trabalho de Graduação no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.
