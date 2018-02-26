@@ -1,30 +1,78 @@
-site_name: TG - Getúlio Vinicius
-site_description: Documentação do Projeto de Software ...
+# Project information
+site_name: tgGV
+site_description: Documentação do Projeto de Software tgGV
 site_author: Getúlio Vinicius <getuliovinits@gmail.com>
-google_analytics: ['UA-70830801-13', 'auto']
+site_url: https://getuliovinicius.github.io/trabalho.graduacao/
+copyright: 'Copyleft 2018 Getúlio Vinicius'
+
+# Repository
 repo_url: https://github.com/getuliovinicius/trabalho.graduacao
 repo_name: GitHub
 edit_uri: blob/master/docs/mds/
 remote_branch: gh-pages
 remote_name: origin
-docs_dir: 'mds'
-pages:
-    - Inicio: index.md
-    - Tema 1:
-        - Introdução: 'tema-1/00-introducao.md'
-    - Tema 2:
-        - Introdução: 'tema-2/00-introducao.md'
-    - Tema 3:
-        - Introdução: 'tema-3/00-introducao.md'
-theme: readthedocs
-extra:
-    version: 1.0
+
+# Analytics
+google_analytics: ['UA-70830801-13', 'auto']
+
+# Extensions
 markdown_extensions:
     - smarty
     - nl2br
     - admonition
     - codehilite
     - sane_lists
+    - footnotes
+    - meta
     - toc:
         permalink: True
         separator: "_"
+    # - pymdownx.arithmatex
+    # - pymdownx.betterem:
+    #     smart_enable: all
+    - pymdownx.caret
+    # - pymdownx.critic
+    - pymdownx.details
+    # - pymdownx.emoji:
+    #     emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.inlinehilite
+    # - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+
+# Theme
+theme:
+    name: material
+    language: 'pt'
+    palette:
+        primary: 'teal'
+        accent: 'teal'
+    font:
+        text: 'Ubuntu'
+        code: 'Ubuntu Mono'
+    feature:
+        tabs: true
+
+# Configuration
+docs_dir: 'mds'
+pages:
+    - Início: 'index.md'
+    - Licença: 'licence.md'
+    - Desenvolvimento:
+        - Descrição: 'doc-desenvolvimento/0-descricao.md'
+        - Requisitos: 'doc-desenvolvimento/1-requisitos.md'
+        - Modelagem: 'doc-desenvolvimento/2-modelagem.md'
+        - Prototipação: 'doc-desenvolvimento/3-prototipacao.md'
+        - Tecnologias: 'doc-desenvolvimento/4-tecnologias.md'
+    - Instalação:
+        - Introdução: 'doc-instalacao/00-introducao.md'
+    - Guia do usuário:
+        - Introdução: 'doc-usuario-final/00-introducao.md'
+
+# Extra
+extra:
+    version: 0.3.0
