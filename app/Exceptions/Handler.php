@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Laravel\Passport\Exceptions\MissingScopeException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,6 +49,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+		if ($exception instanceof MissingScopeException)
+			return response()->json(['error' => 'Usuário não autorizado.'], 401);
+
         return parent::render($request, $exception);
     }
 }
