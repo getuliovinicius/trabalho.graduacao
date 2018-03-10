@@ -116,4 +116,7 @@ Quando eu converso com as pessoas percebo que estou falando de forma dissertativ
 
 http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/frame/oque.htm
 
-Uma linha de teste
+O principal objetivo do BPMN é fornecer uma notação que seja facilmente compreensível por todos os usuários empresariais, do negócio
+analistas que criam os rascunhos iniciais dos processos, aos desenvolvedores técnicos responsáveis pela implementação do
+tecnologia que irá realizar esses processos e, finalmente, para os empresários que gerenciarão e monitorarão aqueles
+processos. 
