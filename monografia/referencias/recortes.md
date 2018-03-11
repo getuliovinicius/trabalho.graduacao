@@ -119,4 +119,31 @@ http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/frame/oque.htm
 O principal objetivo do BPMN é fornecer uma notação que seja facilmente compreensível por todos os usuários empresariais, do negócio
 analistas que criam os rascunhos iniciais dos processos, aos desenvolvedores técnicos responsáveis pela implementação do
 tecnologia que irá realizar esses processos e, finalmente, para os empresários que gerenciarão e monitorarão aqueles
-processos. 
+processos.
+
+----------------------
+
+Exemplo de requisitos para o sistema de software de bomba de insulina.
+3.2 O sistema deve medir o açúcar no sangue e fornecer insulina, se necessário, a cada dez minutos. (Mudanças de açúcar no sangue são
+relativamente lentas, portanto, medições mais frequentes são desnecessárias; medições menos frequentes podem levar a níveis de açúcar
+desnecessariamente elevados.)
+3.6 O sistema deve, a cada minuto, executar uma rotina de autoteste com as condições a serem testadas e as ações associadas definidas na
+Quadro 4.3 (A rotina de autoteste pode descobrir problemas de hardware e software e pode alertar o usuário para a impossibilidade de operar
+normalmente.)
+
+---------------------------
+
+Tem como objetivo principal validar os requisitos, abordar questões de interface, e avaliar tanto a viabilidade quanto a complexidade do sistema.
+
+
+Para exibir um bloco de código em HTML pode-se utilizar as tags `<pre>` e `<code>`.
+
+Abaixo um trecho de código em bloco:
+
+    <h1>Exemplo de exibição de código</h1>
+
+    <div>
+        <p>Um parágrafo</p>
+    </div>
+    
+    <a href="www.um-site-de-exemplo.com">Um link de exemplo</a>
