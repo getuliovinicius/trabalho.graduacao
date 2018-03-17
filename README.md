@@ -14,9 +14,7 @@ Meu nome é Getúlio Vinícius Teixeira da Silva, se você já viu algum perfil 
 + Fazedor de sites que se diz matemático - na verdade eu tenho um diploma de matemática
 + Ativista totalmente contra a matança de primatas para fazer bala chita - Isso é totalmente verdade.
 
-## Além disso
-
-Eu estudo Analise e Desenvolvimento de Sistemas na Fatec Dr. Thamaz Novelino, em Franca-SP.
+Além disso, eu estudo Analise e Desenvolvimento de Sistemas na Fatec Dr. Thamaz Novelino, em Franca-SP.
 
 ## Sobre o que é meu TG?
 
@@ -30,10 +28,18 @@ A professora Dra. Jaqueline Brigladori Pugliesi será minha orientadora.
 
 ## Outras coisas
 
++ Este projeto utiliza o _framework_ PHP **Laravel**.
 + O diretório `monografia` existe para armazenar os arquivos que serão utilizados para elaboração dos documentos que serão avaliados pela Banca do TG.
 + O diretório `docs` contem a documentação do projeto de software.
 
-### Observação
+## Licença
+
+O projeto que estou desenvolvendo pode ser usado, copiado, modificado e redistribuído pois está licenciado sob [GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007](https://github.com/getuliovinicius/trabalho.gradauacao/blob/master/LICENSE).
+Códigos de terceiros utilizados na construção desta aplicação estão sujeitos as suas respectivas licenças:
+
++ Laravel - [MIT license](https://opensource.org/licenses/MIT)
+
+## Observação
 
 Eu tenho perfil no Github com algums exercícios publicados e outras coisas: [github.com/getuliovinicius](https://github.com/getuliovinicius)
 

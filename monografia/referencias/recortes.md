@@ -115,3 +115,132 @@ usados.
 Quando eu converso com as pessoas percebo que estou falando de forma dissertativa argumentativa. Maldito TG.
 
 http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/frame/oque.htm
+
+O principal objetivo do BPMN é fornecer uma notação que seja facilmente compreensível por todos os usuários empresariais, do negócio
+analistas que criam os rascunhos iniciais dos processos, aos desenvolvedores técnicos responsáveis pela implementação do
+tecnologia que irá realizar esses processos e, finalmente, para os empresários que gerenciarão e monitorarão aqueles
+processos.
+
+----------------------
+
+Exemplo de requisitos para o sistema de software de bomba de insulina.
+3.2 O sistema deve medir o açúcar no sangue e fornecer insulina, se necessário, a cada dez minutos. (Mudanças de açúcar no sangue são
+relativamente lentas, portanto, medições mais frequentes são desnecessárias; medições menos frequentes podem levar a níveis de açúcar
+desnecessariamente elevados.)
+3.6 O sistema deve, a cada minuto, executar uma rotina de autoteste com as condições a serem testadas e as ações associadas definidas na
+Quadro 4.3 (A rotina de autoteste pode descobrir problemas de hardware e software e pode alertar o usuário para a impossibilidade de operar
+normalmente.)
+
+---------------------------
+
+Tem como objetivo principal validar os requisitos, abordar questões de interface, e avaliar tanto a viabilidade quanto a complexidade do sistema.
+
+
+Para exibir um bloco de código em HTML pode-se utilizar as tags `<pre>` e `<code>`.
+
+Abaixo um trecho de código em bloco:
+
+    <h1>Exemplo de exibição de código</h1>
+
+    <div>
+        <p>Um parágrafo</p>
+    </div>
+
+    <a href="www.um-site-de-exemplo.com">Um link de exemplo</a>
+
+
+Pando - a universal document converter
+
+About pandoc
+
+John MacFarlane
+
+Um documento com formatação do Markdown deve ser publicado como é, como texto sem formatação, sem parecer que tenha sido marcado com tags ou instruções de formatação.
+
+https://michelf.ca/projects/php-markdown/
+
+https://python-markdown.github.io/
+
+Python-Markdown
+
+2017
+
+The Python-Markdown Project
+
+
+
+    Waylan Limberg
+
+    Waylan is the current maintainer of the code and has written much of the current code base, included a complete refactor of the core. He started out by authoring many of the available extensions and later was asked to join Yuri, where he began fixing numerous bugs, adding documentation and making general improvements to the existing code base.
+
+    Yuri Takteyev
+
+    Yuri wrote most of the code found in version 1.x while procrastinating his Ph.D. Various pieces of his code still exist, most notably the basic structure.
+
+    Manfed Stienstra
+
+    Manfed wrote the original version of the script and is responsible for various parts of the existing code base.
+
+    Artem Yunusov
+
+    Artem, who as part of a 2008 GSoC project, refactored inline patterns, replaced the NanoDOM with ElementTree support and made various other improvements.
+
+    David Wolever
+
+    David refactored the extension API and made other improvements as he helped to integrate Markdown into Dr.Project.
+
+
+https://kramdown.gettalong.org/
+
+Thomas Leitner  
+
+kramdown
+
+http://johnmacfarlane.net/babelmark2/
+
+Babelmark 2
+
+John MacFarlane
+
+http://spec.commonmark.org/0.28/
+
+CommonMark Spec
+
+uma especificação de sintaxe padrão e inequívoca para o Markdown, juntamente com um conjunto de testes abrangentes para validar as implementações do Markdown contra esta especificação.
+
+Este documento registra o tipo de mídia de texto / markdown para uso com
+    Markdown, uma família de sintaxe de formatação de texto simples que, opcionalmente,
+    podem ser convertidos em linguagens de marcação formal, como HTML.
+
+    Internet Engineering Task Force (IETF)
+
+https://www.ietf.org/about/
+
+About
+
+Sean Leonard
+
+Internet Engineering Task Force (IETF)                        S. Leonard
+Request for Comments: 7763                                 Penango, Inc.
+Category: Informational                                       March 2016
+ISSN: 2070-1721
+
+The text/markdown Media Type
+
+https://tools.ietf.org/html/rfc7763
+
+Internet Engineering Task Force (IETF)                        S. Leonard
+Request for Comments: 7764                                 Penango, Inc.
+Category: Informational                                       March 2016
+ISSN: 2070-1721
+
+
+                         Guidance on Markdown:
+  Design Philosophies, Stability Strategies, and Select Registrations
+
+  Markdown especificamente é uma família de sintagmas que se baseiam no
+   trabalho original de John Gruber com contribuições substanciais de
+   Aaron Swartz, lançado em 2004 [ MARKDOWN ]. Desde a sua liberação, uma
+   série de aplicações web ou voltadas para a web incorporaram o Markdown
+   em seus sistemas de entrada de texto, com freqüência com extensões personalizadas.
+   Com a complexidade e as dificuldades de segurança das 
