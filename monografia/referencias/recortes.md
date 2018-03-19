@@ -243,4 +243,102 @@ ISSN: 2070-1721
    Aaron Swartz, lançado em 2004 [ MARKDOWN ]. Desde a sua liberação, uma
    série de aplicações web ou voltadas para a web incorporaram o Markdown
    em seus sistemas de entrada de texto, com freqüência com extensões personalizadas.
-   Com a complexidade e as dificuldades de segurança das 
+   Com a complexidade e as dificuldades de segurança das
+
+# Linguagens de programação
+
+| ID | Linguagem | Site |
+| -- | --------- | ---- |
+| 1 | PHP | http://www.php.net |
+| 2 | Python | https://www.python.org |
+| 3 | Javascript | |
+| 4 | Ruby | https://www.ruby-lang.org |
+
+
+<h1>Linguagens de programação</h1>
+
+<table>
+<thead>
+<tr>
+  <th align="center">ID</th>
+  <th align="left">Linguagem</th>
+  <th align="right">Site</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td align="center">1</td>
+  <td align="left">PHP</td>
+  <td align="right">http://www.php.net</td>
+</tr>
+<tr>
+  <td align="center">2</td>
+  <td align="left">Python</td>
+  <td align="right">https://www.python.org</td>
+</tr>
+<tr>
+  <td align="center">3</td>
+  <td align="left">Javascript</td>
+  <td align="right"></td>
+</tr>
+<tr>
+  <td align="center">4</td>
+  <td align="left">Ruby</td>
+  <td align="right">https://www.ruby-lang.org</td>
+</tr>
+</tbody>
+</table>
+
+Wikitexto
+
+https://pt.wikipedia.org/wiki/Wikitexto
+
+Esta página foi editada pela última vez à(s) 23h26min de 19 de agosto de 2017.
+
+
+1. Fazer o download do instalador do gerenciador de pacotes "pip".
+
+$ wget https://bootstrap.pypa.io/get-pip.py
+
+2. Instalar o gerenciador de pacotes "pip".
+
+$ sudo python get-pip.py
+
+3. Instalar o pacote "virtualenv".
+
+$ sudo pip install virtualenv
+
+4. Instalar o pacote "virtualenvwrapper".
+
+$ sudo pip install virtualenvwrapper
+
+5.Editar o arquivo ".bashrc" na localizado no diretório "home" do usuário atual e adicionar as linhas abaixo no final do arquivo.
+
+# Virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_REQUIRE_VIRTUALENV=true
+
+6. Recarregar as configurações do "bash".
+
+$ source ~/.bashrc
+
+7. Criar um diretório para armazenar os arquivos do projeto com "MkDocs".
+
+$ mkdir -p ~/teste-mkdocs
+
+8. Criar um ambiente virtual Python para execução do "MkDocs"
+
+$ mkvirtualenv docs
+
+9. Ativar o uso do ambiente virtual Python.
+
+$ workon docs_mkdocs
+
+10. Instalar o "MkDocs".
+
+$ pip install mkdocs
+
+11. Iniciar um projeto com "MkDocs".
+
+$ mkdocs new .
