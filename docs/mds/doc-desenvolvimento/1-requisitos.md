@@ -13,7 +13,6 @@ Documento de Requisitos
 - [ ] O usuário pode realizar correções nos lançamentos.
 - [ ] O usuário lista os lançamentos de uma contas.
 - [ ] O usuário visualiza os saldos das contas.
-- [ ] O usuário visualiza os saldos das contas.
 
 ## Requisitos do usuário (empresa)
 
