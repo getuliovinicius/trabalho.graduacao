@@ -12,7 +12,6 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="navbar-nav mr-auto">
 				@auth
-					<li><a class="nav-link" href="{{-- route('veiculos') --}}">Veiculos</a></li>
 					<li><a class="nav-link" href="{{ route('tokens') }}">Tokens</a></li>
 				@endauth
 			</ul>
