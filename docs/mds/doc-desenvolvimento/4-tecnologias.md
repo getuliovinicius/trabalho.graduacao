@@ -1,8 +1,10 @@
 Tecnologias
 ===========
 
+**Atualizado em:** 30/03/2018
+
 Pilha de software utilizada para desenvolvimento da aplicação.
 
-| Tecnologia | Descrição | Versão |
-|:----- |:----- |:----- |
-| Laravel | _Framework_ PHP | 5.6 |
+| Software| Descrição | Versão | Licença |
+|:----- |:----- |:-----:|:----- |
+| Laravel | Framework PHP | 5.6 | _The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)_ |
