@@ -17,6 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('permissions', 'Api\PermissionController');
+Route::apiResource('users', 'Api\UserController');
 Route::apiResource('roles', 'Api\RoleController');
+Route::apiResource('permissions', 'Api\PermissionController');
 Route::apiResource('categories', 'Api\CategoryController');
+Route::apiResource('accounts', 'Api\AccountController');
+Route::apiResource('transactions', 'Api\TransactionController');

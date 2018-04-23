@@ -3,12 +3,44 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Validator;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
+use App\Models\Account;
 
 class CategoryController extends Controller
 {
+    protected $user_id;
+
+    /**
+     * Validate data posted
+     */
+    protected function validateCategory($request, $id = null)
+    {
+        // user_id nunca pode ser passado.
+        $this->user_id = $request->user_id;
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => [
+                    'required',
+                    'string',
+                    'max:191',
+                    Rule::unique('categories')->where(function ($query) {
+                        $query->where('user_id', $this->user_id);
+                    })->ignore($id)
+                ],
+                // user_id nunca pode ser passado.
+                'user_id' => 'required|integer|exists:users,id',
+            ]
+        );
+
+        return $validator;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +48,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return new CategoryCollection(Category::all());
+        try {
+            // Adicionar where com user_id autenticado
+            $list = CategoryResource::collection(Category::paginate());
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
+        }
+
+        return $list;
     }
 
     /**
@@ -27,40 +66,117 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = $this->validateCategory($request);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+        }
+
+        // Não pode passar o user_id
+        $data = $request->only(['name', 'user_id']);
+
+        try {
+            $category = Category::create($data);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
+        }
+
+        return response()->json(['data' => $category], 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  Integer  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        if (!is_numeric($id) || $id < 1) {
+            return response()->json(['message' => 'ID inválida.'], 400);
+        }
+
+        try {
+            // Adicionar where com user_id autenticado
+            $category = new CategoryResource(Category::find($id));
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
+        }
+
+        if ($category->resource) {
+            return response()->json([$category], 200);
+        } else {
+            return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  Integer $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        if (!is_numeric($id) || $id < 1) {
+            return response()->json(['message' => 'ID inválida.'], 400);
+        }
+
+        $validator = $this->validateCategory($request, $id);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+        }
+
+        // Não pode passar o user_id
+        $data = $request->only(['name', 'user_id']);
+
+        try {
+            // Adicionar where com user_id autenticado
+            $category = Category::find($id);
+
+            if ($category) {
+                $category->update($data);
+
+                return response()->json(['data' => $category], 200);
+            } else {
+                return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  Integer $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        if (!is_numeric($id) || $id < 1) {
+            return response()->json(['message' => 'ID inválida.'], 400);
+        }
+
+        try {
+            if (Account::where('category_id', $id)->exists()) {
+                return response()->json(['message' => 'Existem contas relacionadas a essa categoria.'], 400);
+            }
+
+            // Adicionar where com user_id autenticado
+            $category = Category::find($id);
+
+            if ($category) {
+                $category->delete();
+
+                return response()->json(['message' => 'Categoria removida.'], 204);
+            } else {
+                return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
+        }
     }
 }

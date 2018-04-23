@@ -112,6 +112,7 @@ return [
     'attributes' => [
         'address' => 'endereço',
         'age' => 'idade',
+        'balance' => 'saldo',
         'body' => 'conteúdo',
         'city' => 'cidade',
         'country' => 'país',
@@ -138,6 +139,7 @@ return [
         'text' => 'texto',
         'time' => 'hora',
         'title' => 'título',
+        'type' => 'tipo',
         'username' => 'usuário',
         'year' => 'ano',
     ],

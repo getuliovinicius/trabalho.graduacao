@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PermissionResource;
@@ -13,13 +14,18 @@ class PermissionController extends Controller
     /**
      * Validate data posted
      */
-    protected function validatePermission($request)
+    protected function validatePermission($request, $id = null)
     {
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|max:191',
-                'description' => 'required|max:191',
+                'name' => [
+                    'required',
+                    'string',
+                    'max:191',
+                    Rule::unique('permissions')->ignore($id)
+                ],
+                'description' => 'required|string|max:191',
             ]
         );
 
@@ -105,7 +111,7 @@ class PermissionController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        $validator = $this->validatePermission($request);
+        $validator = $this->validatePermission($request, $id);
 
         if ($validator->fails()) {
             return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
@@ -113,18 +119,18 @@ class PermissionController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        $permission = Permission::find($id);
+        try {
+            $permission = Permission::find($id);
 
-        if ($permission) {
-            try {
+            if ($permission) {
                 $permission->update($data);
-            } catch (\Exception $e) {
-                return response()->json(['message' => 'Erro no servidor.'], 500);
-            }
 
-            return response()->json(['data' => $permission], 200);
-        } else {
-            return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
+                return response()->json(['data' => $permission], 200);
+            } else {
+                return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
         }
     }
 
@@ -140,18 +146,18 @@ class PermissionController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        $permission = Permission::find($id);
+        try {
+            $permission = Permission::find($id);
 
-        if ($permission) {
-            try {
+            if ($permission) {
                 $permission->delete();
 
                 return response()->json(['message' => 'Permissão removida.'], 204);
-            } catch (\Exception $e) {
-                return response()->json(['message' => 'Erro no servidor.'], 500);
+            } else {
+                return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
             }
-        } else {
-            return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
         }
     }
 }

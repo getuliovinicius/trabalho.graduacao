@@ -3,23 +3,29 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
-use App\Models\Role;
 use App\Http\Resources\RoleResource;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
     /**
      * Validate data posted
      */
-    protected function validateRole($request)
+    protected function validateRole($request, $id = null)
     {
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|max:191',
-                'description' => 'required|max:191',
+                'name' => [
+                    'required',
+                    'string',
+                    'max:191',
+                    Rule::unique('roles')->ignore($id)
+                ],
+                'description' => 'required|string|max:191',
             ]
         );
 
@@ -105,7 +111,7 @@ class RoleController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        $validator = $this->validateRole($request);
+        $validator = $this->validateRole($request, $id);
 
         if ($validator->fails()) {
             return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
@@ -113,18 +119,18 @@ class RoleController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        $role = Role::find($id);
+        try {
+            $role = Role::find($id);
 
-        if ($role) {
-            try {
+            if ($role) {
                 $role->update($data);
-            } catch (\Exception $e) {
-                return response()->json(['message' => 'Erro no servidor.'], 500);
-            }
 
-            return response()->json(['data' => $role], 200);
-        } else {
-            return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
+                return response()->json(['data' => $role], 200);
+            } else {
+                return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro no servidor.'], 500);
         }
     }
 
