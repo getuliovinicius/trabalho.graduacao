@@ -85,13 +85,11 @@ class TransactionController extends Controller
         DB::beginTransaction();
 
         try {
-            $accountSource = Account::find($data['source_account_id']);
-            $accountSource->balance -= $data['value'];
-            $accountSource->save();
-            $accountDestination = Account::find($data['destination_account_id']);
-            $accountDestination->balance += $data['value'];
-            $accountDestination->save();
             $transaction = Transaction::create($data);
+            $transaction->accountSource->balance -= $transaction->value;
+            $transaction->accountSource->save();
+            $transaction->accountDestination->balance += $transaction->value;
+            $transaction->accountDestination->save();
 
             DB::commit();
         } catch (\Exception $e) {
@@ -155,24 +153,23 @@ class TransactionController extends Controller
         try {
             $transaction = Transaction::find($id);
 
-            //dd($transaction->accountSource->user_id);
+            if ($transaction && ($transaction->accountSource->user_id == $this->user_id) && ($transaction->accountDestination->user_id == $this->user_id)) {
+                $transaction->accountSource->balance += $transaction->value;
+                $transaction->accountSource->save();
+                $transaction->accountDestination->balance -= $transaction->value;
+                $transaction->accountDestination->save();
+                $transaction->update($data);
 
-            if (($transaction->accountSource->user_id == $this->user_id) && ($transaction->accountDestination->user_id == $this->user_id)) {
-                $accountSourceOld = Account::find($transaction->source_account_id);
-                $accountSourceOld->balance += $transaction->value;
-                $accountSourceOld->save();
-                $accountDestinationOld = Account::find($transaction->destination_account_id);
-                $accountDestinationOld->balance -= $transaction->value;
-                $accountDestinationOld->save();
                 $accountSource = Account::find($data['source_account_id']);
                 $accountSource->balance -= $data['value'];
                 $accountSource->save();
                 $accountDestination = Account::find($data['destination_account_id']);
                 $accountDestination->balance += $data['value'];
                 $accountDestination->save();
-                $transaction->update($data);
 
                 DB::commit();
+
+                return response()->json(['data' => $transaction], 201);
             } else {
                 DB::rollBack();
 
@@ -183,17 +180,15 @@ class TransactionController extends Controller
 
             return response()->json(['message' => 'Erro no servidor.'], 500);
         }
-
-        return response()->json(['data' => $transaction], 201);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transaction  $transaction
+     * @param  Integer  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy($id)
     {
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
@@ -203,21 +198,26 @@ class TransactionController extends Controller
 
         try {
             $transaction = Transaction::find($id);
-            $accountSourceOld = Account::find($transaction->source_account_id);
-            $accountSourceOld->balance += $transaction->value;
-            $accountSourceOld->save();
-            $accountDestinationOld = Account::find($transaction->destination_account_id);
-            $accountDestinationOld->balance -= $transaction->value;
-            $accountDestinationOld->save();
 
-            if ($account) {
-                $account->delete();
+            // if ($transaction && ($transaction->accountSource->user_id == $this->user_id) && ($transaction->accountDestination->user_id == $this->user_id)) {
+            if ($transaction) {
+                $transaction->accountSource->balance += $transaction->value;
+                $transaction->accountSource->save();
+                $transaction->accountDestination->balance -= $transaction->value;
+                $transaction->accountDestination->save();
+                $transaction->delete();
 
-                return response()->json(['message' => 'Conta removida.'], 204);
+                DB::commit();
+
+                return response()->json(['message' => 'Movimentação removida.'], 204);
             } else {
-                return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
+                DB::rollBack();
+
+                return response()->json(['message' => 'Movimentação com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json(['message' => 'Erro no servidor.'], 500);
         }
     }

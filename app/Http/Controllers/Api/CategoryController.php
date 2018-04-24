@@ -8,7 +8,6 @@ use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
-use App\Models\Account;
 
 class CategoryController extends Controller
 {
@@ -161,14 +160,14 @@ class CategoryController extends Controller
         }
 
         try {
-            if (Account::where('category_id', $id)->exists()) {
-                return response()->json(['message' => 'Existem contas relacionadas a essa categoria.'], 400);
-            }
-
             // Adicionar where com user_id autenticado
             $category = Category::find($id);
 
             if ($category) {
+                if ($category->accounts->count()) {
+                    return response()->json(['message' => 'Existem contas relacionadas a essa categoria.'], 400);
+                }
+
                 $category->delete();
 
                 return response()->json(['message' => 'Categoria removida.'], 204);

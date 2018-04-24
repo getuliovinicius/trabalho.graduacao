@@ -8,7 +8,6 @@ use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AccountResource;
 use App\Models\Account;
-use App\Models\Transaction;
 
 class AccountController extends Controller
 {
@@ -177,14 +176,14 @@ class AccountController extends Controller
         }
 
         try {
-            if (Transaction::where('source_account_id', $id)->exists() || Transaction::where('destination_account_id', $id)->exists()) {
-                return response()->json(['message' => 'Existem movimentações relacionadas a conta.'], 400);
-            }
-
             // Adicionar where com user_id autenticado
             $account = Account::find($id);
 
             if ($account) {
+                if (($account->trasactionAccountSource->count()) || ($account->trasactionAccountDestination->count())) {
+                    return response()->json(['message' => 'Existem movimentações relacionadas a conta.'], 400);
+                }
+
                 $account->delete();
 
                 return response()->json(['message' => 'Conta removida.'], 204);
