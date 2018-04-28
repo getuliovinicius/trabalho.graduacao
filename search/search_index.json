@@ -17,12 +17,12 @@
         }, 
         {
             "location": "/licence/", 
-            "text": "Licen\u00e7a\n\n\nO projeto que estou desenvolvendo pode ser usado, copiado, modificado e redistribu\u00eddo pois est\u00e1 licenciado sob \nGNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007\n.\n\n\nC\u00f3digos de terceiros utilizados na constru\u00e7\u00e3o desta aplica\u00e7\u00e3o, tais como frameworks e bibliotecas, est\u00e3o sujeitos as suas respectivas licen\u00e7as:\n\n\n\n\nLaravel - The Laravel framework is open-sourced software licensed under the \nMIT license", 
+            "text": "Licen\u00e7a\n\n\nO projeto que estou desenvolvendo pode ser usado, copiado, modificado e redistribu\u00eddo pois est\u00e1 licenciado sob \nGNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007\n.\n\n\nC\u00f3digos de terceiros\n utilizados na constru\u00e7\u00e3o desta aplica\u00e7\u00e3o, tais como \nframeworks\n e bibliotecas, est\u00e3o sujeitos as suas respectivas licen\u00e7as.", 
             "title": "Licen\u00e7a"
         }, 
         {
             "location": "/licence/#licenca", 
-            "text": "O projeto que estou desenvolvendo pode ser usado, copiado, modificado e redistribu\u00eddo pois est\u00e1 licenciado sob  GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007 .  C\u00f3digos de terceiros utilizados na constru\u00e7\u00e3o desta aplica\u00e7\u00e3o, tais como frameworks e bibliotecas, est\u00e3o sujeitos as suas respectivas licen\u00e7as:   Laravel - The Laravel framework is open-sourced software licensed under the  MIT license", 
+            "text": "O projeto que estou desenvolvendo pode ser usado, copiado, modificado e redistribu\u00eddo pois est\u00e1 licenciado sob  GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007 .  C\u00f3digos de terceiros  utilizados na constru\u00e7\u00e3o desta aplica\u00e7\u00e3o, tais como  frameworks  e bibliotecas, est\u00e3o sujeitos as suas respectivas licen\u00e7as.", 
             "title": "Licen\u00e7a"
         }, 
         {
@@ -42,12 +42,12 @@
         }, 
         {
             "location": "/doc-desenvolvimento/1-requisitos/", 
-            "text": "Documento de Requisitos\n\n\nAtualizado em:\n 27/02/2018\n\n\nRequisitos do usu\u00e1rio (cliente)\n\n\n\n\n O usu\u00e1rio pode criar uma conta para gerenciar seu or\u00e7amento pessoal.\n\n\n O usu\u00e1rio pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.\n\n\n O usu\u00e1rio deve criar um plano de contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.\n\n\n O usu\u00e1rio deve alimentar o saldo inicial das contas.\n\n\n O usu\u00e1rio faz lan\u00e7amentos nas contas.\n\n\n O usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.\n\n\n O usu\u00e1rio lista os lan\u00e7amentos de uma contas.\n\n\n O usu\u00e1rio visualiza os saldos das contas.\n\n\n\n\nRequisitos do usu\u00e1rio (empresa)\n\n\n\n\n O usu\u00e1rio do tipo gerente pode acessar realat\u00f3rios gerenciais.\n\n\n O usu\u00e1rio do tipo administrador pode acessar realat\u00f3rios gerenciais e gerenciar as contas de usu\u00e1rios.\n\n\n\n\nRequisitos da aplica\u00e7\u00e3o\n\n\n\n\n Autentica\u00e7\u00e3o de usu\u00e1rios.\n\n\n Ao criar uma conta o usu\u00e1rio deve ser direcionado para um processo de alimenta\u00e7\u00e3o das contas iniciais.\n\n\n O usu\u00e1rio \nroot\n n\u00e3o pode ser exclu\u00eddo.\n\n\n A aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es do usu\u00e1rio (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o\n\nde lan\u00e7amentos e acessos)\n\n\n\n\nRequisitos de tecnologia\n\n\n\n\n Aplica\u00e7\u00e3o orientada a servi\u00e7o.\n\n\n Web service Rest.\n\n\n Cliente web da aplica\u00e7\u00e3o.", 
+            "text": "Documento de Requisitos\n\n\nAtualizado em:\n 30/03/2018\n\n\nRequisitos do usu\u00e1rio (cliente)\n\n\n\n\n O usu\u00e1rio pode criar uma conta para gerenciar seu or\u00e7amento pessoal.\n\n\n O usu\u00e1rio pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.\n\n\n O usu\u00e1rio deve criar um plano de contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.\n\n\n O usu\u00e1rio deve alimentar o saldo inicial das contas.\n\n\n O usu\u00e1rio faz lan\u00e7amentos nas contas.\n\n\n O usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.\n\n\n O usu\u00e1rio lista os lan\u00e7amentos de uma contas.\n\n\n O usu\u00e1rio visualiza os saldos das contas.\n\n\n\n\nRequisitos do usu\u00e1rio (empresa)\n\n\n\n\n O usu\u00e1rio do tipo gerente pode acessar realat\u00f3rios gerenciais.\n\n\n O usu\u00e1rio do tipo administrador pode acessar realat\u00f3rios gerenciais e gerenciar as contas de usu\u00e1rios.\n\n\n\n\nRequisitos da aplica\u00e7\u00e3o\n\n\n\n\n Autentica\u00e7\u00e3o de usu\u00e1rios.\n\n\n Ao criar uma conta o usu\u00e1rio deve ser direcionado para um processo de alimenta\u00e7\u00e3o das contas iniciais.\n\n\n O usu\u00e1rio \nroot\n n\u00e3o pode ser exclu\u00eddo.\n\n\n A aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es do usu\u00e1rio (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o\n\nde lan\u00e7amentos e acessos)\n\n\n\n\nRequisitos de tecnologia\n\n\n\n\n Aplica\u00e7\u00e3o orientada a servi\u00e7o.\n\n\n Web service Rest.\n\n\n Cliente web da aplica\u00e7\u00e3o.", 
             "title": "Requisitos"
         }, 
         {
             "location": "/doc-desenvolvimento/1-requisitos/#documento_de_requisitos", 
-            "text": "Atualizado em:  27/02/2018", 
+            "text": "Atualizado em:  30/03/2018", 
             "title": "Documento de Requisitos"
         }, 
         {
@@ -72,13 +72,28 @@
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/", 
-            "text": "Modelagem\n\n\nProcesso\n\n\nCaso de uso\n\n\nCaso de uso - 1\n\n\n\n\nCaso de uso - 2\n\n\n\n\nBanco de dados", 
+            "text": "Modelagem\n\n\nAtualizado em:\n 30/03/2018\n\n\nBanco de dados\n\n\nModelo conceitual\n\n\n\n\nModelo l\u00f3gico\n\n\nUser (*id, name, email, password, type, remember_token, created_at, updated_at)\n\nCategory (* id, category, created_at, updated_at)\n\nAccount (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account\n\n\n\n\nProcesso\n\n\nCaso de uso\n\n\nCaso de uso - 1\n\n\n\n\nCaso de uso - 2", 
             "title": "Modelagem"
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/#modelagem", 
-            "text": "", 
+            "text": "Atualizado em:  30/03/2018", 
             "title": "Modelagem"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/2-modelagem/#banco_de_dados", 
+            "text": "", 
+            "title": "Banco de dados"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/2-modelagem/#modelo_conceitual", 
+            "text": "", 
+            "title": "Modelo conceitual"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/2-modelagem/#modelo_logico", 
+            "text": "User (*id, name, email, password, type, remember_token, created_at, updated_at)\n\nCategory (* id, category, created_at, updated_at)\n\nAccount (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account", 
+            "title": "Modelo l\u00f3gico"
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/#processo", 
@@ -101,18 +116,13 @@
             "title": "Caso de uso - 2"
         }, 
         {
-            "location": "/doc-desenvolvimento/2-modelagem/#banco_de_dados", 
-            "text": "", 
-            "title": "Banco de dados"
-        }, 
-        {
             "location": "/doc-desenvolvimento/3-prototipacao/", 
-            "text": "Prototipa\u00e7\u00e3o\n\n\nTela 1 - Agenda", 
+            "text": "Prototipa\u00e7\u00e3o\n\n\nAtualizado em:\n 30/03/2018\n\n\nTela 1 - Agenda\n\n\n\n\nTela 2 - Contas", 
             "title": "Prototipa\u00e7\u00e3o"
         }, 
         {
             "location": "/doc-desenvolvimento/3-prototipacao/#prototipacao", 
-            "text": "", 
+            "text": "Atualizado em:  30/03/2018", 
             "title": "Prototipa\u00e7\u00e3o"
         }, 
         {
@@ -121,13 +131,18 @@
             "title": "Tela 1 - Agenda"
         }, 
         {
+            "location": "/doc-desenvolvimento/3-prototipacao/#tela_2_-_contas", 
+            "text": "", 
+            "title": "Tela 2 - Contas"
+        }, 
+        {
             "location": "/doc-desenvolvimento/4-tecnologias/", 
-            "text": "Tecnologias\n\n\nPilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.\n\n\n\n\n\n\n\n\nTecnologia\n\n\nDescri\u00e7\u00e3o\n\n\nVers\u00e3o\n\n\n\n\n\n\n\n\n\n\nLaravel\n\n\nFramework\n PHP\n\n\n5.6", 
+            "text": "Tecnologias\n\n\nAtualizado em:\n 30/03/2018\n\n\nPilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.\n\n\n\n\n\n\n\n\nSoftware\n\n\nDescri\u00e7\u00e3o\n\n\nVers\u00e3o\n\n\nLicen\u00e7a\n\n\n\n\n\n\n\n\n\n\nLaravel\n\n\nFramework PHP\n\n\n5.6\n\n\nThe Laravel framework is open-sourced software licensed under the \nMIT license", 
             "title": "Tecnologias"
         }, 
         {
             "location": "/doc-desenvolvimento/4-tecnologias/#tecnologias", 
-            "text": "Pilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.     Tecnologia  Descri\u00e7\u00e3o  Vers\u00e3o      Laravel  Framework  PHP  5.6", 
+            "text": "Atualizado em:  30/03/2018  Pilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.     Software  Descri\u00e7\u00e3o  Vers\u00e3o  Licen\u00e7a      Laravel  Framework PHP  5.6  The Laravel framework is open-sourced software licensed under the  MIT license", 
             "title": "Tecnologias"
         }, 
         {

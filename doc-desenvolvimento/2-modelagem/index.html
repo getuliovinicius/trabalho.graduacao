@@ -401,6 +401,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#banco_de_dados" title="Banco de dados" class="md-nav__link">
+    Banco de dados
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo_conceitual" title="Modelo conceitual" class="md-nav__link">
+    Modelo conceitual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo_logico" title="Modelo lógico" class="md-nav__link">
+    Modelo lógico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#processo" title="Processo" class="md-nav__link">
     Processo
   </a>
@@ -431,13 +458,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#banco_de_dados" title="Banco de dados" class="md-nav__link">
-    Banco de dados
-  </a>
   
 </li>
       
@@ -574,6 +594,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#banco_de_dados" title="Banco de dados" class="md-nav__link">
+    Banco de dados
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo_conceitual" title="Modelo conceitual" class="md-nav__link">
+    Modelo conceitual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo_logico" title="Modelo lógico" class="md-nav__link">
+    Modelo lógico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#processo" title="Processo" class="md-nav__link">
     Processo
   </a>
@@ -607,13 +654,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#banco_de_dados" title="Banco de dados" class="md-nav__link">
-    Banco de dados
-  </a>
-  
-</li>
-      
       
       
       
@@ -634,13 +674,30 @@
                 
                 
                 <h1 id="modelagem">Modelagem<a class="headerlink" href="#modelagem" title="Permanent link">&para;</a></h1>
+<p><strong>Atualizado em:</strong> 30/03/2018</p>
+<h2 id="banco_de_dados">Banco de dados<a class="headerlink" href="#banco_de_dados" title="Permanent link">&para;</a></h2>
+<h3 id="modelo_conceitual">Modelo conceitual<a class="headerlink" href="#modelo_conceitual" title="Permanent link">&para;</a></h3>
+<p><img alt="DER - Diagrama Entidade Relacionamento" src="../diagramas/der-1.png" /></p>
+<h3 id="modelo_logico">Modelo lógico<a class="headerlink" href="#modelo_logico" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>User (*id, name, email, password, type, remember_token, created_at, updated_at)
+
+Category (* id, category, created_at, updated_at)
+
+Account (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)
+    user_id reference User
+    category_id reference Category
+
+TrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)
+    source_account_id reference Account
+    destination_account_id reference Account
+</pre></div>
+
 <h2 id="processo">Processo<a class="headerlink" href="#processo" title="Permanent link">&para;</a></h2>
 <h2 id="caso_de_uso">Caso de uso<a class="headerlink" href="#caso_de_uso" title="Permanent link">&para;</a></h2>
 <h3 id="caso_de_uso_-_1">Caso de uso - 1<a class="headerlink" href="#caso_de_uso_-_1" title="Permanent link">&para;</a></h3>
 <p><img alt="Utilização do serviço" src="../diagramas/caso-de-uso-1.png" /></p>
 <h3 id="caso_de_uso_-_2">Caso de uso - 2<a class="headerlink" href="#caso_de_uso_-_2" title="Permanent link">&para;</a></h3>
 <p><img alt="Administração do serviço" src="../diagramas/caso-de-uso-2.png" /></p>
-<h2 id="banco_de_dados">Banco de dados<a class="headerlink" href="#banco_de_dados" title="Permanent link">&para;</a></h2>
                 
                   
                 
