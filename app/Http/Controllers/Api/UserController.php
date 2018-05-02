@@ -23,7 +23,6 @@ class UserController extends Controller
                 'name' => 'required|string|max:191',
                 'email' => [
                     'required',
-                    'string',
                     'email',
                     'max:191',
                     Rule::unique('users')->ignore($id)
@@ -45,7 +44,7 @@ class UserController extends Controller
         try {
             $list = UserResource::collection(User::paginate());
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         return $list;
@@ -62,7 +61,7 @@ class UserController extends Controller
         $validator = $this->validateUser($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'email', 'password']);
@@ -70,11 +69,11 @@ class UserController extends Controller
 
         try {
             $user = User::create($data);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
-        }
 
-        return response()->json(['data' => $user], 201);
+            return response()->json([$user], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Internal server error'], 500);
+        }
     }
 
     /**
@@ -92,7 +91,7 @@ class UserController extends Controller
         try {
             $user = new UserResource(User::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($user->resource) {
@@ -118,7 +117,7 @@ class UserController extends Controller
         $validator = $this->validateUser($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'email', 'password']);
@@ -130,12 +129,12 @@ class UserController extends Controller
             if ($user) {
                 $user->update($data);
 
-                return response()->json(['data' => $user], 200);
+                return response()->json([$user], 200);
             } else {
                 return response()->json(['message' => 'Usuário com ID ' . $id . ' não encontrado.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -162,7 +161,7 @@ class UserController extends Controller
                 return response()->json(['message' => 'Usuário com ID ' . $id . ' não encontrado.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 }

@@ -21,7 +21,7 @@ class CategoryController extends Controller
         // user_id nunca pode ser passado.
         $this->user_id = $request->user_id;
 
-        $validator = Validator::make(
+        return Validator::make(
             $request->all(),
             [
                 'name' => [
@@ -36,8 +36,6 @@ class CategoryController extends Controller
                 'user_id' => 'required|integer|exists:users,id',
             ]
         );
-
-        return $validator;
     }
 
     /**
@@ -51,7 +49,7 @@ class CategoryController extends Controller
             // Adicionar where com user_id autenticado
             $list = CategoryResource::collection(Category::paginate());
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         return $list;
@@ -68,7 +66,7 @@ class CategoryController extends Controller
         $validator = $this->validateCategory($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         // Não pode passar o user_id
@@ -77,10 +75,10 @@ class CategoryController extends Controller
         try {
             $category = Category::create($data);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
-        return response()->json(['data' => $category], 201);
+        return response()->json([$category], 201);
     }
 
     /**
@@ -99,7 +97,7 @@ class CategoryController extends Controller
             // Adicionar where com user_id autenticado
             $category = new CategoryResource(Category::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($category->resource) {
@@ -125,7 +123,7 @@ class CategoryController extends Controller
         $validator = $this->validateCategory($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         // Não pode passar o user_id
@@ -138,12 +136,12 @@ class CategoryController extends Controller
             if ($category) {
                 $category->update($data);
 
-                return response()->json(['data' => $category], 200);
+                return response()->json([$category], 200);
             } else {
                 return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -175,7 +173,7 @@ class CategoryController extends Controller
                 return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 }

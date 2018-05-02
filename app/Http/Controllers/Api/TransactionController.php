@@ -23,7 +23,7 @@ class TransactionController extends Controller
         // user_id nunca pode ser passado.
         $this->user_id = $request->user_id;
 
-        $validator = Validator::make(
+        return Validator::make(
             $request->all(),
             [
                 'date' => 'required|date',
@@ -45,8 +45,6 @@ class TransactionController extends Controller
                 ]
             ]
         );
-
-        return $validator;
     }
 
     /**
@@ -60,7 +58,7 @@ class TransactionController extends Controller
             // Adicionar where com user_id autenticado
             $list = TransactionResource::collection(Transaction::paginate());
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         return $list;
@@ -77,7 +75,7 @@ class TransactionController extends Controller
         $validator = $this->validateTransaction($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['date', 'description', 'value', 'source_account_id', 'destination_account_id']);
@@ -95,10 +93,10 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
-        return response()->json(['data' => $transaction], 201);
+        return response()->json([$transaction], 201);
     }
 
     /**
@@ -117,7 +115,7 @@ class TransactionController extends Controller
             // Adicionar where com user_id autenticado
             $transaction = new TransactionResource(Transaction::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($transaction->resource) {
@@ -143,7 +141,7 @@ class TransactionController extends Controller
         $validator = $this->validateTransaction($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['date', 'description', 'value', 'source_account_id', 'destination_account_id']);
@@ -169,7 +167,7 @@ class TransactionController extends Controller
 
                 DB::commit();
 
-                return response()->json(['data' => $transaction], 201);
+                return response()->json([$transaction], 201);
             } else {
                 DB::rollBack();
 
@@ -178,7 +176,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -218,7 +216,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 }

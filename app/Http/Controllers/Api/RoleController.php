@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     protected function validateRole($request, $id = null)
     {
-        $validator = Validator::make(
+        return Validator::make(
             $request->all(),
             [
                 'name' => [
@@ -28,8 +28,6 @@ class RoleController extends Controller
                 'description' => 'required|string|max:191',
             ]
         );
-
-        return $validator;
     }
 
     /**
@@ -42,7 +40,7 @@ class RoleController extends Controller
         try {
             $list = RoleResource::collection(Role::paginate());
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         return $list;
@@ -59,7 +57,7 @@ class RoleController extends Controller
         $validator = $this->validateRole($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'description']);
@@ -67,10 +65,10 @@ class RoleController extends Controller
         try {
             $role = Role::create($data);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
-        return response()->json(['data' => $role], 201);
+        return response()->json([$role], 201);
     }
 
     /**
@@ -88,7 +86,7 @@ class RoleController extends Controller
         try {
             $role = new RoleResource(Role::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($role->resource) {
@@ -114,7 +112,7 @@ class RoleController extends Controller
         $validator = $this->validateRole($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'description']);
@@ -125,12 +123,12 @@ class RoleController extends Controller
             if ($role) {
                 $role->update($data);
 
-                return response()->json(['data' => $role], 200);
+                return response()->json([$role], 200);
             } else {
                 return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -154,7 +152,7 @@ class RoleController extends Controller
 
                 return response()->json(['message' => 'Papel removido.'], 204);
             } catch (\Exception $e) {
-                return response()->json(['message' => 'Erro no servidor.'], 500);
+                return response()->json(['message' => 'Internal server error'], 500);
             }
         } else {
             return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);

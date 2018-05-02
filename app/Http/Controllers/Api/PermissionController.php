@@ -16,7 +16,7 @@ class PermissionController extends Controller
      */
     protected function validatePermission($request, $id = null)
     {
-        $validator = Validator::make(
+        return Validator::make(
             $request->all(),
             [
                 'name' => [
@@ -28,8 +28,6 @@ class PermissionController extends Controller
                 'description' => 'required|string|max:191',
             ]
         );
-
-        return $validator;
     }
 
     /**
@@ -42,7 +40,7 @@ class PermissionController extends Controller
         try {
             $list = PermissionResource::collection(Permission::paginate());
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         return $list;
@@ -59,7 +57,7 @@ class PermissionController extends Controller
         $validator = $this->validatePermission($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'description']);
@@ -67,10 +65,10 @@ class PermissionController extends Controller
         try {
             $permission = Permission::create($data);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
-        return response()->json(['data' => $permission], 201);
+        return response()->json([$permission], 201);
     }
 
     /**
@@ -88,7 +86,7 @@ class PermissionController extends Controller
         try {
             $permission = new PermissionResource(Permission::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($permission->resource) {
@@ -114,7 +112,7 @@ class PermissionController extends Controller
         $validator = $this->validatePermission($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         $data = $request->only(['name', 'description']);
@@ -125,12 +123,12 @@ class PermissionController extends Controller
             if ($permission) {
                 $permission->update($data);
 
-                return response()->json(['data' => $permission], 200);
+                return response()->json([$permission], 200);
             } else {
                 return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -157,7 +155,7 @@ class PermissionController extends Controller
                 return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 }

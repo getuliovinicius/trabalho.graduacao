@@ -5,7 +5,7 @@
 .lock
 .bak
 .directory
-keys.txt
+keys.md
 
 # Laravel
 /node_modules

@@ -29,11 +29,15 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes(function ($router) {
             $router->forAccessTokens();
             // $router->forPersonalAccessTokens();
-            $router->forTransientTokens();
+            // $router->forTransientTokens();
         });
-        /* Passport::tokensExpireIn(now()->addDays(15));
-        Passport::refreshTokensExpireIn(now()->addDays(30)); */
+        // Passport::tokensExpireIn(now()->addDays(15));
+        // Passport::refreshTokensExpireIn(now()->addDays(30));
         Passport::tokensExpireIn(Carbon::now()->addMinutes(3));
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(30));
+        Passport::tokensCan([
+            'users-list' => 'Lista os usuários',
+            'users-destroy' => 'Exclui os usuários',
+        ]);
     }
 }

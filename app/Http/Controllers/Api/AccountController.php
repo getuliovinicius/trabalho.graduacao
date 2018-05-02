@@ -21,7 +21,7 @@ class AccountController extends Controller
         // user_id nunca pode ser passado.
         $this->user_id = $request->user_id;
 
-        $validator = Validator::make(
+        return Validator::make(
             $request->all(),
             [
                 'name' => [
@@ -48,8 +48,6 @@ class AccountController extends Controller
                 ]
             ]
         );
-
-        return $validator;
     }
 
     /**
@@ -64,7 +62,7 @@ class AccountController extends Controller
                 // Adicionar where com user_id autenticado
                 $list = AccountResource::collection(Account::paginate());
             } catch (\Exception $e) {
-                return response()->json(['message' => 'Erro no servidor.'], 500);
+                return response()->json(['message' => 'Internal server error'], 500);
             }
 
             return $list;
@@ -82,7 +80,7 @@ class AccountController extends Controller
         $validator = $this->validateAccount($request);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         // Não pode passar o user_id
@@ -92,10 +90,10 @@ class AccountController extends Controller
         try {
             $account = Account::create($data);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
-        return response()->json(['data' => $account], 201);
+        return response()->json([$account], 201);
     }
 
     /**
@@ -114,7 +112,7 @@ class AccountController extends Controller
             // Adicionar where com user_id autenticado
             $account = new AccountResource(Account::find($id));
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
 
         if ($account->resource) {
@@ -140,7 +138,7 @@ class AccountController extends Controller
         $validator = $this->validateAccount($request, $id);
 
         if ($validator->fails()) {
-            return response()->json(['message' => 'Erro', 'errors' => $validator->errors()], 400);
+            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
         // Não pode passar o user_id
@@ -154,12 +152,12 @@ class AccountController extends Controller
             if ($account) {
                 $account->update($data);
 
-                return response()->json(['data' => $account], 200);
+                return response()->json([$account], 200);
             } else {
                 return response()->json(['message' => 'Conta com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 
@@ -191,7 +189,7 @@ class AccountController extends Controller
                 return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro no servidor.'], 500);
+            return response()->json(['message' => 'Internal server error'], 500);
         }
     }
 }
