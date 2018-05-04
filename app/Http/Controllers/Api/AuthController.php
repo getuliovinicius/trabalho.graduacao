@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\Models\Role;
+use App\Models\User;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     protected function validateForm($request, $type)
     {
@@ -31,7 +35,7 @@ class LoginController extends Controller
                             'required',
                             'email',
                             'max:191',
-                            Rule::unique('users')->ignore($id)
+                            Rule::unique('users')
                         ],
                         'password' => 'required|string|min:6|max:20|confirmed',
                     ]
@@ -93,11 +97,15 @@ class LoginController extends Controller
     {
         $accessToken = auth()->user()->token();
 
-        $refreshToken = DB::table('oauth_refresh_tokens')
-            ->where('access_token_id', $accessToken->id)
-            ->update([
-                'revoked' => true
-            ]);
+        try {
+            DB::table('oauth_refresh_tokens')
+                ->where('access_token_id', $accessToken->id)
+                ->update([
+                    'revoked' => true
+                ]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Internal server error'], 500);
+        }
 
         $accessToken->revoke();
 
@@ -108,7 +116,7 @@ class LoginController extends Controller
         // return response()->json(['message' => 'You are Logged out.'], 200);
     }
 
-    public function register()
+    public function register(Request $request)
     {
         $validator = $this->validateForm($request, 'register');
 
@@ -117,13 +125,21 @@ class LoginController extends Controller
         }
 
         $credentials = $request->only(['name', 'email', 'password']);
-        $data['password'] = Hash::make($data['password']);
+        $credentials['password'] = Hash::make($credentials['password']);
+
+        DB::beginTransaction();
 
         try {
-            $user = User::create($data);
+            $role = Role::where('name', 'Usuário')->get()->first();
+            $user = User::create($credentials);
+            $user->roles()->attach($role->id);
+
+            DB::commit();
 
             return response()->json([$user], 201);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json(['message' => 'Internal server error'], 500);
         }
     }

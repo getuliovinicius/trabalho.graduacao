@@ -35,9 +35,9 @@ class AuthServiceProvider extends ServiceProvider
         // Passport::refreshTokensExpireIn(now()->addDays(30));
         Passport::tokensExpireIn(Carbon::now()->addMinutes(3));
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(30));
-        Passport::tokensCan([
-            'users-list' => 'Lista os usuários',
-            'users-destroy' => 'Exclui os usuários',
-        ]);
+        // Passport::tokensCan([
+        //     'users-list' => 'Lista os usuários',
+        //     'users-destroy' => 'Exclui os usuários',
+        // ]);
     }
 }
