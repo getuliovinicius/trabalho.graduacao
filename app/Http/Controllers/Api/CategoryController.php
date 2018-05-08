@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -11,16 +12,11 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    protected $user_id;
-
     /**
      * Validate data posted
      */
     protected function validateCategory($request, $id = null)
     {
-        // user_id nunca pode ser passado.
-        $this->user_id = $request->user_id;
-
         return Validator::make(
             $request->all(),
             [
@@ -29,11 +25,9 @@ class CategoryController extends Controller
                     'string',
                     'max:191',
                     Rule::unique('categories')->where(function ($query) {
-                        $query->where('user_id', $this->user_id);
+                        $query->where('user_id', auth()->user()->id);
                     })->ignore($id)
-                ],
-                // user_id nunca pode ser passado.
-                'user_id' => 'required|integer|exists:users,id',
+                ]
             ]
         );
     }
@@ -45,14 +39,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        try {
-            // Adicionar where com user_id autenticado
-            $list = CategoryResource::collection(Category::paginate());
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
-
-        return $list;
+        return CategoryResource::collection(Category::where('user_id', auth()->user()->id)->paginate());
     }
 
     /**
@@ -69,14 +56,9 @@ class CategoryController extends Controller
             return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
-        // Não pode passar o user_id
-        $data = $request->only(['name', 'user_id']);
-
-        try {
-            $category = Category::create($data);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $data = $request->only(['name']);
+        $data['user_id'] = auth()->user()->id;
+        $category = Category::create($data);
 
         return response()->json([$category], 201);
     }
@@ -93,12 +75,14 @@ class CategoryController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            // Adicionar where com user_id autenticado
-            $category = new CategoryResource(Category::find($id));
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $category = new CategoryResource(
+            Category::where(
+                [
+                    ['id', '=', $id],
+                    ['user_id', '=', auth()->user()->id],
+                ]
+            )->first()
+        );
 
         if ($category->resource) {
             return response()->json([$category], 200);
@@ -126,22 +110,20 @@ class CategoryController extends Controller
             return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
-        // Não pode passar o user_id
-        $data = $request->only(['name', 'user_id']);
+        $data = $request->only(['name']);
+        $category = Category::where(
+            [
+                ['id', '=', $id],
+                ['user_id', '=', auth()->user()->id],
+            ]
+        )->first();
 
-        try {
-            // Adicionar where com user_id autenticado
-            $category = Category::find($id);
+        if ($category) {
+            $category->update($data);
 
-            if ($category) {
-                $category->update($data);
-
-                return response()->json([$category], 200);
-            } else {
-                return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json([$category], 200);
+        } else {
+            return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
         }
     }
 
@@ -157,23 +139,23 @@ class CategoryController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            // Adicionar where com user_id autenticado
-            $category = Category::find($id);
+        $category = Category::where(
+            [
+                ['id', '=', $id],
+                ['user_id', '=', auth()->user()->id],
+            ]
+        )->first();
 
-            if ($category) {
-                if ($category->accounts->count()) {
-                    return response()->json(['message' => 'Existem contas relacionadas a essa categoria.'], 400);
-                }
-
-                $category->delete();
-
-                return response()->json(['message' => 'Categoria removida.'], 204);
-            } else {
-                return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
+        if ($category) {
+            if ($category->accounts->count()) {
+                return response()->json(['message' => 'Existem contas relacionadas a essa categoria.'], 400);
             }
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+
+            $category->delete();
+
+            return response()->json(['message' => 'Categoria removida.'], 204);
+        } else {
+            return response()->json(['message' => 'Categoria com ID ' . $id . ' não encontrada.'], 404);
         }
     }
 }

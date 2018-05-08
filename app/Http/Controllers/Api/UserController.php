@@ -9,6 +9,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -41,13 +42,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        try {
-            $list = UserResource::collection(User::paginate());
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
-
-        return $list;
+        // Adicionar política
+        return UserResource::collection(User::paginate());
     }
 
     /**
@@ -58,11 +54,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // Adicionar política
+
+        // Recuperar o papel do usuário
         $validator = $this->validateUser($request);
 
         if ($validator->fails()) {
             return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
+
+        DB::beginTransaction();
 
         $data = $request->only(['name', 'email', 'password']);
         $data['password'] = Hash::make($data['password']);
@@ -70,9 +71,15 @@ class UserController extends Controller
         try {
             $user = User::create($data);
 
+            // Adicionar relacionamento Role-User
+
+            DB::commit();
+
             return response()->json([$user], 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            DB::rollBack();
+
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 
@@ -84,15 +91,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        // Adicionar politica
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            $user = new UserResource(User::find($id));
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $user = new UserResource(User::find($id));
 
         if ($user->resource) {
             return response()->json([$user], 200);
@@ -110,10 +115,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Adicionar politica
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
+        // Recuperar o papel do usuário
         $validator = $this->validateUser($request, $id);
 
         if ($validator->fails()) {
@@ -123,18 +131,28 @@ class UserController extends Controller
         $data = $request->only(['name', 'email', 'password']);
         $data['password'] = Hash::make($data['password']);
 
+        DB::beginTransaction();
+
         try {
             $user = User::find($id);
 
             if ($user) {
                 $user->update($data);
 
+                // Adicionar relacionamento Role-User
+
+                DB::commit();
+
                 return response()->json([$user], 200);
             } else {
+                DB::rollBack();
+
                 return response()->json(['message' => 'Usuário com ID ' . $id . ' não encontrado.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            DB::rollBack();
+
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 
@@ -146,6 +164,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // Adicionar politica
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
@@ -161,7 +181,7 @@ class UserController extends Controller
                 return response()->json(['message' => 'Usuário com ID ' . $id . ' não encontrado.'], 404);
             }
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 }

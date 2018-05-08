@@ -9,13 +9,16 @@ class Transaction extends Model
     protected $fillable = ['date', 'description', 'value', 'source_account_id', 'destination_account_id'];
 
     /**
-     * Get the accounts that owns the transaction.
+     * Gets the transaction's source account.
      */
     public function accountSource()
     {
         return $this->belongsTo(Account::class, 'source_account_id');
     }
 
+    /**
+     * Gets the transaction target account.
+     */
     public function accountDestination()
     {
         return $this->belongsTo(Account::class, 'destination_account_id');

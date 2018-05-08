@@ -37,13 +37,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        try {
-            $list = RoleResource::collection(Role::paginate());
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        // Adicionar Política
 
-        return $list;
+        return RoleResource::collection(Role::paginate());
     }
 
     /**
@@ -54,6 +50,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        // Adicionar Política
+
         $validator = $this->validateRole($request);
 
         if ($validator->fails()) {
@@ -62,11 +60,7 @@ class RoleController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        try {
-            $role = Role::create($data);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $role = Role::create($data);
 
         return response()->json([$role], 201);
     }
@@ -79,15 +73,13 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+        // Adicionar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            $role = new RoleResource(Role::find($id));
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $role = new RoleResource(Role::find($id));
 
         if ($role->resource) {
             return response()->json([$role], 200);
@@ -105,6 +97,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Adicionar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
@@ -117,18 +111,14 @@ class RoleController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        try {
-            $role = Role::find($id);
+        $role = Role::find($id);
 
-            if ($role) {
-                $role->update($data);
+        if ($role) {
+            $role->update($data);
 
-                return response()->json([$role], 200);
-            } else {
-                return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json([$role], 200);
+        } else {
+            return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
         }
     }
 
@@ -140,6 +130,8 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        // Adicionar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
@@ -147,13 +139,9 @@ class RoleController extends Controller
         $role = Role::find($id);
 
         if ($role) {
-            try {
-                $role->delete();
+            $role->delete();
 
-                return response()->json(['message' => 'Papel removido.'], 204);
-            } catch (\Exception $e) {
-                return response()->json(['message' => 'Internal server error'], 500);
-            }
+            return response()->json(['message' => 'Papel removido.'], 204);
         } else {
             return response()->json(['message' => 'Papel com ID ' . $id . ' não encontrado.'], 404);
         }

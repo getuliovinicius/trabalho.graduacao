@@ -13,16 +13,11 @@ use App\Models\Account;
 
 class TransactionController extends Controller
 {
-    protected $user_id;
-
     /**
      * Validate data posted
      */
     protected function validateTransaction($request, $id = null)
     {
-        // user_id nunca pode ser passado.
-        $this->user_id = $request->user_id;
-
         return Validator::make(
             $request->all(),
             [
@@ -33,14 +28,14 @@ class TransactionController extends Controller
                     'required',
                     'integer',
                     Rule::exists('accounts', 'id')->where(function ($query) {
-                        $query->where('user_id', $this->user_id);
+                        $query->where('user_id', auth()->user()->id);
                     }),
                 ],
                 'destination_account_id' => [
                     'required',
                     'integer',
                     Rule::exists('accounts', 'id')->where(function ($query) {
-                        $query->where('user_id', $this->user_id);
+                        $query->where('user_id', auth()->user()->id);
                     }),
                 ]
             ]
@@ -54,14 +49,25 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        try {
-            // Adicionar where com user_id autenticado
-            $list = TransactionResource::collection(Transaction::paginate());
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
-
-        return $list;
+        return TransactionResource::collection(
+            Transaction::join(
+                'accounts',
+                'transactions.source_account_id',
+                '=',
+                'accounts.id'
+            )->join(
+                'users',
+                'accounts.user_id',
+                '=',
+                'users.id'
+            )->select(
+                'transactions.*'
+            )->where(
+                'users.id',
+                '=',
+                auth()->user()->id
+            )->paginate()
+        );
     }
 
     /**
@@ -93,7 +99,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
 
         return response()->json([$transaction], 201);
@@ -111,12 +117,26 @@ class TransactionController extends Controller
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            // Adicionar where com user_id autenticado
-            $transaction = new TransactionResource(Transaction::find($id));
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $transaction = new TransactionResource(
+            Transaction::join(
+                'accounts',
+                'transactions.source_account_id',
+                '=',
+                'accounts.id'
+            )->join(
+                'users',
+                'accounts.user_id',
+                '=',
+                'users.id'
+            )->select(
+                'transactions.*'
+            )->where(
+                [
+                    ['users.id', '=', auth()->user()->id],
+                    ['transactions.id', '=', $id]
+                ]
+            )->first()
+        );
 
         if ($transaction->resource) {
             return response()->json([$transaction], 200);
@@ -151,7 +171,7 @@ class TransactionController extends Controller
         try {
             $transaction = Transaction::find($id);
 
-            if ($transaction && ($transaction->accountSource->user_id == $this->user_id) && ($transaction->accountDestination->user_id == $this->user_id)) {
+            if ($transaction && ($transaction->accountSource->user_id == auth()->user()->id) && ($transaction->accountDestination->user_id == auth()->user()->id)) {
                 $transaction->accountSource->balance += $transaction->value;
                 $transaction->accountSource->save();
                 $transaction->accountDestination->balance -= $transaction->value;
@@ -176,7 +196,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 
@@ -197,8 +217,7 @@ class TransactionController extends Controller
         try {
             $transaction = Transaction::find($id);
 
-            // if ($transaction && ($transaction->accountSource->user_id == $this->user_id) && ($transaction->accountDestination->user_id == $this->user_id)) {
-            if ($transaction) {
+            if ($transaction && ($transaction->accountSource->user_id == auth()->user()->id) && ($transaction->accountDestination->user_id == auth()->user()->id)) {
                 $transaction->accountSource->balance += $transaction->value;
                 $transaction->accountSource->save();
                 $transaction->accountDestination->balance -= $transaction->value;
@@ -216,7 +235,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 }

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
@@ -14,6 +14,9 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    /**
+     *
+     */
     protected function validateForm($request, $type)
     {
         switch ($type) {
@@ -22,7 +25,7 @@ class AuthController extends Controller
                     $request->all(),
                     [
                         'email' => 'required|email|max:191',
-                        'password' => 'required|string|min:6|max:191'
+                        'password' => 'required|string|min:6|max:20'
                     ]
                 );
                 break;
@@ -44,6 +47,9 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     *
+     */
     public function login(Request $request)
     {
         $validator = $this->validateForm($request, 'login');
@@ -52,70 +58,72 @@ class AuthController extends Controller
             return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 400);
         }
 
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+        } else {
+            return response()->json(['message' => 'Unauthorised'], 401);
+        }
+
+        $roles = array_pluck($user->roles, 'name');
+        $scope = '';
+
+        foreach ($roles as $role) {
+            $scope = str_finish($scope, ' ' . $role);
+        }
+
         $credentials = [
             'grant_type' => 'password',
             'client_id' => env('PASSWORD_CLIENT_ID'),
             'client_secret' => env('PASSWORD_CLIENT_SECRET'),
             'username' => $request->input('email'),
             'password' => $request->input('password'),
-            'scope' => ''
+            'scope' => trim($scope)
         ];
 
         $requestToken = Request::create('/oauth/token', 'POST', $credentials);
+
         return app()->handle($requestToken);
-
-        // try {
-        //     if (Auth::attempt($credentials)) {
-        //         $user = Auth::user();
-        //         $personal_client_name = env('PERSONAL_CLIENT_NAME');
-        //         $token = $user->createToken($personal_client_name)->accessToken;
-
-        //         return response()->json(['token' => $token], 200);
-        //     } else {
-        //         return response()->json(['message' => 'Unauthorised'], 401);
-        //     }
-        // } catch (\Exception $e) {
-        //     return response()->json(['message' => 'Internal server error'], 500);
-        // }
     }
 
+    /**
+     *
+     */
     public function loginRefresh(Request $request)
     {
         $credentials = [
             'grant_type' => 'refresh_token',
             'client_id' => env('PASSWORD_CLIENT_ID'),
             'client_secret' => env('PASSWORD_CLIENT_SECRET'),
-            'refresh_token' => $request->input('refresh_token'),
-            'scope' => ''
+            'refresh_token' => $request->input('refresh_token')
         ];
 
         $requestToken = Request::create('/oauth/token', 'POST', $credentials);
         return app()->handle($requestToken);
     }
 
+    /**
+     *
+     */
     public function logout(Request $request)
     {
         $accessToken = auth()->user()->token();
 
-        try {
-            DB::table('oauth_refresh_tokens')
-                ->where('access_token_id', $accessToken->id)
-                ->update([
-                    'revoked' => true
-                ]);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        DB::table('oauth_refresh_tokens')
+            ->where('access_token_id', $accessToken->id)
+            ->update([
+                'revoked' => true
+            ]);
 
         $accessToken->revoke();
 
         return response()->json(['message' => 'You are Logged out.'], 200);
-
-        // $request->user()->token()->revoke();
-
-        // return response()->json(['message' => 'You are Logged out.'], 200);
     }
 
+    /**
+     *
+     */
     public function register(Request $request)
     {
         $validator = $this->validateForm($request, 'register');
@@ -130,8 +138,8 @@ class AuthController extends Controller
         DB::beginTransaction();
 
         try {
-            $role = Role::where('name', 'Usuário')->get()->first();
             $user = User::create($credentials);
+            $role = Role::where('name', 'Usuário')->get()->first();
             $user->roles()->attach($role->id);
 
             DB::commit();
@@ -140,7 +148,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Internal server error.'], 500);
         }
     }
 }

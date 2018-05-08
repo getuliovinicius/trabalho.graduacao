@@ -9,7 +9,7 @@ class Category extends Model
     protected $fillable = ['name', 'user_id'];
 
     /**
-     * Get the transactions for the account source.
+     * Gets the category-related accounts.
      */
     public function accounts()
     {

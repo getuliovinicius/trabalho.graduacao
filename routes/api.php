@@ -24,12 +24,12 @@ Route::namespace('Api')->group(function () {
 });
 
 Route::middleware('auth:api')->namespace('Api')->group(function () {
-    Route::apiResource('users', 'UserController');
-    Route::apiResource('roles', 'RoleController');
-    Route::apiResource('permissions', 'PermissionController');
-    Route::apiResource('categories', 'CategoryController');
-    Route::apiResource('accounts', 'AccountController');
-    Route::apiResource('transactions', 'TransactionController');
+    Route::apiResource('users', 'UserController')->middleware('scopes:Administrador');
+    Route::apiResource('roles', 'RoleController')->middleware('scopes:Administrador');
+    Route::apiResource('permissions', 'PermissionController')->middleware('scopes:Administrador');
+    Route::apiResource('categories', 'CategoryController')->middleware('scopes:Usuário');
+    Route::apiResource('accounts', 'AccountController')->middleware('scopes:Usuário');
+    Route::apiResource('transactions', 'TransactionController')->middleware('scopes:Usuário');
     Route::get('user', function (Request $request) {
         return $request->user();
     })->name('user.show');

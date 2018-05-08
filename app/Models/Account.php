@@ -9,7 +9,7 @@ class Account extends Model
     protected $fillable = ['name', 'type', 'balance', 'user_id', 'category_id'];
 
     /**
-     * Get the transactions for the account source.
+     * Gets account-related transactions. (account source)
      */
     public function trasactionAccountSource()
     {
@@ -17,7 +17,7 @@ class Account extends Model
     }
 
     /**
-     * Get the transactions for the account source.
+     * Gets account-related transactions. (destination source)
      */
     public function trasactionAccountDestination()
     {

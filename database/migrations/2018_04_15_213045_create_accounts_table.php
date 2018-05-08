@@ -17,6 +17,7 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
+            $table->boolean('allow_negative_balance')->default(true);
             $table->double('balance', 10, 2)->default(0);
             $table->timestamps();
             $table

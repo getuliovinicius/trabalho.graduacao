@@ -37,13 +37,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        try {
-            $list = PermissionResource::collection(Permission::paginate());
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        // Adicionar Política
 
-        return $list;
+        return PermissionResource::collection(Permission::paginate());
     }
 
     /**
@@ -54,6 +50,8 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+        // Adicionar Política
+
         $validator = $this->validatePermission($request);
 
         if ($validator->fails()) {
@@ -62,11 +60,7 @@ class PermissionController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        try {
-            $permission = Permission::create($data);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $permission = Permission::create($data);
 
         return response()->json([$permission], 201);
     }
@@ -79,15 +73,13 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
+        // Adiconar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            $permission = new PermissionResource(Permission::find($id));
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
-        }
+        $permission = new PermissionResource(Permission::find($id));
 
         if ($permission->resource) {
             return response()->json([$permission], 200);
@@ -105,6 +97,8 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Adiconar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
@@ -117,18 +111,14 @@ class PermissionController extends Controller
 
         $data = $request->only(['name', 'description']);
 
-        try {
-            $permission = Permission::find($id);
+        $permission = Permission::find($id);
 
-            if ($permission) {
-                $permission->update($data);
+        if ($permission) {
+            $permission->update($data);
 
-                return response()->json([$permission], 200);
-            } else {
-                return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json([$permission], 200);
+        } else {
+            return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
         }
     }
 
@@ -140,22 +130,20 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
+        // Adiconar Política
+
         if (!is_numeric($id) || $id < 1) {
             return response()->json(['message' => 'ID inválida.'], 400);
         }
 
-        try {
-            $permission = Permission::find($id);
+        $permission = Permission::find($id);
 
-            if ($permission) {
-                $permission->delete();
+        if ($permission) {
+            $permission->delete();
 
-                return response()->json(['message' => 'Permissão removida.'], 204);
-            } else {
-                return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Internal server error'], 500);
+            return response()->json(['message' => 'Permissão removida.'], 204);
+        } else {
+            return response()->json(['message' => 'Permissão com ID ' . $id . ' não encontrada.'], 404);
         }
     }
 }
