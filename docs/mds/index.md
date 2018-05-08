@@ -1,6 +1,8 @@
 Orçamento Pessoal - tgGV
 ========================
 
+**Versão:** 0.6.0
+
 Sobre
 -----
 
