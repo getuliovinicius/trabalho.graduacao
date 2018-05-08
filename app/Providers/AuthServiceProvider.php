@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Carbon\Carbon;
+use Laravel\Passport\Passport;
+use App\Models\Role;
+use App\Models\Category;
+use App\Policies\CategoryPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        Category::class => CategoryPolicy::class,
     ];
 
     /**
@@ -25,6 +29,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Passport::routes(function ($router) {
+            $router->forAccessTokens();
+            // $router->forPersonalAccessTokens();
+            // $router->forTransientTokens();
+        });
+        Passport::tokensExpireIn(Carbon::now()->addMinutes(30));
+        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(60));
+
+        $roles = array_pluck(Role::all(), 'description', 'name');
+
+        Passport::tokensCan($roles);
     }
 }

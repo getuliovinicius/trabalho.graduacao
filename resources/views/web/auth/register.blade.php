@@ -40,37 +40,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="cargo" class="col-md-4 col-form-label text-md-right">{{ __('Cargo') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="cargo" class="form-control{{ $errors->has('cargo') ? ' is-invalid' : '' }}" name="cargo" value="{{ old('cargo') }}" required>
-                                    <option value="Atendente">Atendente</option>
-                                    <option value="Gerente">Gerente</option>
-                                </select>
-
-                                @if ($errors->has('cargo'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('cargo') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="login" class="col-md-4 col-form-label text-md-right">{{ __('Login') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="login" type="text" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="login" value="{{ old('login') }}" required autofocus>
-
-                                @if ($errors->has('login'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('login') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
