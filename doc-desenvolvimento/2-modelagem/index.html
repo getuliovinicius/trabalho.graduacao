@@ -220,34 +220,8 @@
   
     <li class="md-tabs__item">
       
-        <a href="../0-descricao/" title="Desenvolvimento" class="md-tabs__link md-tabs__link--active">
+        <a href="../1-requisitos/" title="Desenvolvimento" class="md-tabs__link md-tabs__link--active">
           Desenvolvimento
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../doc-instalacao/00-introducao/" title="Instalação" class="md-tabs__link">
-          Instalação
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../doc-usuario-final/00-introducao/" title="Guia do usuário" class="md-tabs__link">
-          Guia do usuário
         </a>
       
     </li>
@@ -350,18 +324,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../0-descricao/" title="Descrição" class="md-nav__link">
-      Descrição
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../1-requisitos/" title="Requisitos" class="md-nav__link">
       Requisitos
     </a>
@@ -428,13 +390,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#processo" title="Processo" class="md-nav__link">
-    Processo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#caso_de_uso" title="Caso de uso" class="md-nav__link">
     Caso de uso
   </a>
@@ -461,6 +416,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#processo" title="Processo" class="md-nav__link">
+    Processo
+  </a>
+  
+</li>
+      
       
       
       
@@ -480,90 +442,6 @@
   <li class="md-nav__item">
     <a href="../3-prototipacao/" title="Prototipação" class="md-nav__link">
       Prototipação
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../4-tecnologias/" title="Tecnologias" class="md-nav__link">
-      Tecnologias
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Instalação
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Instalação
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../doc-instalacao/00-introducao/" title="Introdução" class="md-nav__link">
-      Introdução
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Guia do usuário
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Guia do usuário
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../doc-usuario-final/00-introducao/" title="Introdução" class="md-nav__link">
-      Introdução
     </a>
   </li>
 
@@ -621,13 +499,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#processo" title="Processo" class="md-nav__link">
-    Processo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#caso_de_uso" title="Caso de uso" class="md-nav__link">
     Caso de uso
   </a>
@@ -654,6 +525,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#processo" title="Processo" class="md-nav__link">
+    Processo
+  </a>
+  
+</li>
+      
       
       
       
@@ -674,30 +552,43 @@
                 
                 
                 <h1 id="modelagem">Modelagem<a class="headerlink" href="#modelagem" title="Permanent link">&para;</a></h1>
-<p><strong>Atualizado em:</strong> 30/03/2018</p>
+<p><strong>Atualizado em:</strong> 08/05/2018</p>
 <h2 id="banco_de_dados">Banco de dados<a class="headerlink" href="#banco_de_dados" title="Permanent link">&para;</a></h2>
 <h3 id="modelo_conceitual">Modelo conceitual<a class="headerlink" href="#modelo_conceitual" title="Permanent link">&para;</a></h3>
 <p><img alt="DER - Diagrama Entidade Relacionamento" src="../diagramas/der-1.png" /></p>
 <h3 id="modelo_logico">Modelo lógico<a class="headerlink" href="#modelo_logico" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>User (*id, name, email, password, type, remember_token, created_at, updated_at)
+<div class="codehilite"><pre><span></span>Permission (* id, name, description, created_at, updated_at)
 
-Category (* id, category, created_at, updated_at)
+Role (* id, name, description, created_at, updated_at)
 
-Account (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)
+Permission_Role (* id, created_at, updated_at, + permission_id, + role_id)
+    permission_id reference Permission
+    role_id reference Role
+
+User (* id, name, email, password, account_activated, account_hash, remember_token, created_at, updated_at, deleted_at)
+
+Role_User (* id, created_at, updated_at, + role_id, + user_id)
+    role_id reference Role
+    user_id reference User
+
+Category (* id, category, created_at, updated_at, + user_id)
+    user_id reference User
+
+Account (* id, account, type, balance, allow_negative_balance, created_at, updated_at, + user_id, + category_id)
     user_id reference User
     category_id reference Category
 
-TrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)
+TrasactionLog (* id, date, confirmed, description, value, created_at, updated_at, +source_account_id, +destination_account_id)
     source_account_id reference Account
     destination_account_id reference Account
 </pre></div>
 
-<h2 id="processo">Processo<a class="headerlink" href="#processo" title="Permanent link">&para;</a></h2>
 <h2 id="caso_de_uso">Caso de uso<a class="headerlink" href="#caso_de_uso" title="Permanent link">&para;</a></h2>
 <h3 id="caso_de_uso_-_1">Caso de uso - 1<a class="headerlink" href="#caso_de_uso_-_1" title="Permanent link">&para;</a></h3>
 <p><img alt="Utilização do serviço" src="../diagramas/caso-de-uso-1.png" /></p>
 <h3 id="caso_de_uso_-_2">Caso de uso - 2<a class="headerlink" href="#caso_de_uso_-_2" title="Permanent link">&para;</a></h3>
 <p><img alt="Administração do serviço" src="../diagramas/caso-de-uso-2.png" /></p>
+<h2 id="processo">Processo<a class="headerlink" href="#processo" title="Permanent link">&para;</a></h2>
                 
                   
                 

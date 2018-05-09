@@ -2,18 +2,23 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Or\u00e7amento Pessoal - tgGV\n\n\nSobre\n\n\nOr\u00e7amento Pessoal - tgGV, \u00e9 um software livre desenvolvido como Trabalho de Gradua\u00e7\u00e3o no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.", 
+            "text": "Or\u00e7amento Pessoal - tgGV\n\n\nVers\u00e3o:\n 0.6.0\n\n\nSobre o Projeto\n\n\nOr\u00e7amento Pessoal - tgGV, \u00e9 um software livre cujo desenvolvimento foi iniciado como parte do Trabalho de Gradua\u00e7\u00e3o de \nGet\u00falio Vin\u00edcius Teixeira da Silva\n no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.\n\n\nDescri\u00e7\u00e3o\n\n\nTrata-se de uma aplica\u00e7\u00e3o para realiza\u00e7\u00e3o de or\u00e7amento pessoal arquitetada da seguinte forma:\n\n\n\n\nAPI RestFull desenvolvida com o framework PHP Laravel, e\n\n\nAplica\u00e7\u00e3o Web desenvolvida com o framework Javascript Vue.js.\n\n\n\n\nO tgGV tem como objetivo permitir ao usu\u00e1rio a cria\u00e7\u00e3o de um plano de contas (or\u00e7amento pessoal) para controlar suas finan\u00e7as.\n\nAtrav\u00e9s de lan\u00e7amentos realizados com o m\u00e9todo das partidas dobradas, o tgGV permite a visualiza\u00e7\u00e3o das receitas e despesas de modo que o usu\u00e1rio possa compreender como utiliza seu dinheiro.", 
             "title": "In\u00edcio"
         }, 
         {
             "location": "/#orcamento_pessoal_-_tggv", 
-            "text": "", 
+            "text": "Vers\u00e3o:  0.6.0", 
             "title": "Or\u00e7amento Pessoal - tgGV"
         }, 
         {
-            "location": "/#sobre", 
-            "text": "Or\u00e7amento Pessoal - tgGV, \u00e9 um software livre desenvolvido como Trabalho de Gradua\u00e7\u00e3o no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.", 
-            "title": "Sobre"
+            "location": "/#sobre_o_projeto", 
+            "text": "Or\u00e7amento Pessoal - tgGV, \u00e9 um software livre cujo desenvolvimento foi iniciado como parte do Trabalho de Gradua\u00e7\u00e3o de  Get\u00falio Vin\u00edcius Teixeira da Silva  no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.", 
+            "title": "Sobre o Projeto"
+        }, 
+        {
+            "location": "/#descricao", 
+            "text": "Trata-se de uma aplica\u00e7\u00e3o para realiza\u00e7\u00e3o de or\u00e7amento pessoal arquitetada da seguinte forma:   API RestFull desenvolvida com o framework PHP Laravel, e  Aplica\u00e7\u00e3o Web desenvolvida com o framework Javascript Vue.js.   O tgGV tem como objetivo permitir ao usu\u00e1rio a cria\u00e7\u00e3o de um plano de contas (or\u00e7amento pessoal) para controlar suas finan\u00e7as. \nAtrav\u00e9s de lan\u00e7amentos realizados com o m\u00e9todo das partidas dobradas, o tgGV permite a visualiza\u00e7\u00e3o das receitas e despesas de modo que o usu\u00e1rio possa compreender como utiliza seu dinheiro.", 
+            "title": "Descri\u00e7\u00e3o"
         }, 
         {
             "location": "/licence/", 
@@ -26,58 +31,68 @@
             "title": "Licen\u00e7a"
         }, 
         {
-            "location": "/doc-desenvolvimento/0-descricao/", 
-            "text": "Descri\u00e7\u00e3o\n\n\nAplica\u00e7\u00e3o\n\n\nTrata-se de uma aplica\u00e7\u00e3o web com a finalidade de prover um servi\u00e7o de", 
-            "title": "Descri\u00e7\u00e3o"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/0-descricao/#descricao", 
-            "text": "", 
-            "title": "Descri\u00e7\u00e3o"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/0-descricao/#aplicacao", 
-            "text": "Trata-se de uma aplica\u00e7\u00e3o web com a finalidade de prover um servi\u00e7o de", 
-            "title": "Aplica\u00e7\u00e3o"
-        }, 
-        {
             "location": "/doc-desenvolvimento/1-requisitos/", 
-            "text": "Documento de Requisitos\n\n\nAtualizado em:\n 30/03/2018\n\n\nRequisitos do usu\u00e1rio (cliente)\n\n\n\n\n O usu\u00e1rio pode criar uma conta para gerenciar seu or\u00e7amento pessoal.\n\n\n O usu\u00e1rio pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.\n\n\n O usu\u00e1rio deve criar um plano de contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.\n\n\n O usu\u00e1rio deve alimentar o saldo inicial das contas.\n\n\n O usu\u00e1rio faz lan\u00e7amentos nas contas.\n\n\n O usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.\n\n\n O usu\u00e1rio lista os lan\u00e7amentos de uma contas.\n\n\n O usu\u00e1rio visualiza os saldos das contas.\n\n\n\n\nRequisitos do usu\u00e1rio (empresa)\n\n\n\n\n O usu\u00e1rio do tipo gerente pode acessar realat\u00f3rios gerenciais.\n\n\n O usu\u00e1rio do tipo administrador pode acessar realat\u00f3rios gerenciais e gerenciar as contas de usu\u00e1rios.\n\n\n\n\nRequisitos da aplica\u00e7\u00e3o\n\n\n\n\n Autentica\u00e7\u00e3o de usu\u00e1rios.\n\n\n Ao criar uma conta o usu\u00e1rio deve ser direcionado para um processo de alimenta\u00e7\u00e3o das contas iniciais.\n\n\n O usu\u00e1rio \nroot\n n\u00e3o pode ser exclu\u00eddo.\n\n\n A aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es do usu\u00e1rio (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o\n\nde lan\u00e7amentos e acessos)\n\n\n\n\nRequisitos de tecnologia\n\n\n\n\n Aplica\u00e7\u00e3o orientada a servi\u00e7o.\n\n\n Web service Rest.\n\n\n Cliente web da aplica\u00e7\u00e3o.", 
+            "text": "Documento de Requisitos\n\n\nAtualizado em:\n 08/05/2018\n\n\nRequisitos de tecnologia\n\n\n\n\n Arquitetura orientada a servi\u00e7o.\n\n\n API - Web service RESTful.\n\n\n Aplica\u00e7\u00e3o Web para consumir a API.\n\n\n Sistema automatizado de deploy.\n\n\n\n\nRequisitos da aplica\u00e7\u00e3o\n\n\nAbaixo segue a tabela com a lista de requisitos gerais da aplica\u00e7\u00e3o.\n\n\nvers\u00e3o 1.0.0\n\n\n\n\n\n\n\n\nAPI\n\n\nWeb\n\n\nRequisito\n\n\n\n\n\n\n\n\n\n\nOK\n\n\n-\n\n\nAutentica\u00e7\u00e3o de usu\u00e1rios.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nA aplica\u00e7\u00e3o deve possuir quatro pap\u00e9is de usu\u00e1rio (Super Usu\u00e1rio, Administrador, Gerente e Usu\u00e1rio).\n\n\n\n\n\n\n-\n\n\n-\n\n\nDeve existir apenas um Super Usu\u00e1rio denominado \nroot\n que n\u00e3o poder\u00e1 ser exclu\u00eddo.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nNenhum usu\u00e1rio pode visualizar, alterar ou excluir, ou ainda, criar uma categoria, conta ou lan\u00e7amento de outro usu\u00e1rio.\n\n\n\n\n\n\n-\n\n\n-\n\n\nA aplica\u00e7\u00e3o deve gerar relat\u00f3rios do tipo lista de usu\u00e1rios (ativos, inativos, bloqueados)\n\n\n\n\n\n\n-\n\n\n-\n\n\nA aplica\u00e7\u00e3o deve gerar relat\u00f3rio sint\u00e9tico de contas criadas por per\u00edodo\n\n\n\n\n\n\n\n\nvers\u00e3o 2.0.0\n\n\n\n\n\n\n\n\nAPI\n\n\nWeb\n\n\nRequisito\n\n\n\n\n\n\n\n\n\n\n-\n\n\n-\n\n\nA aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es dos usu\u00e1rios (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o de lan\u00e7amentos e acessos)\n\n\n\n\n\n\n\n\nRequisitos do usu\u00e1rio do servi\u00e7o\n\n\nvers\u00e3o 1.0.0\n\n\nEsses s\u00e3o os requisitos e regras de neg\u00f3cio da aplica\u00e7\u00e3o para usu\u00e1rios que ir\u00e3o criar uma conta no servi\u00e7o a fim de realizarem o controle de suas finan\u00e7as pessoais.\n\n\n\n\n\n\n\n\nAPI\n\n\nWeb\n\n\nRequisito\n\n\n\n\n\n\n\n\n\n\nOK\n\n\n-\n\n\nAs pessoas que tiverem interesse em usar o servi\u00e7o devem se cadastrar em um formul\u00e1rio p\u00fablico informando o nome completo, endere\u00e7o de e-mail e senha.\n\n\n\n\n\n\n-\n\n\n-\n\n\nAp\u00f3s realizar seu cadastro na aplica\u00e7\u00e3o o usu\u00e1rio deve receber um link no e-mail informado, apontando para o endere\u00e7o de ativa\u00e7\u00e3o da conta.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nTodas as contas para usu\u00e1rios do servi\u00e7o cadastradas atrav\u00e9s do formul\u00e1rio p\u00fablico devem ser atribu\u00eddas ao papel Usu\u00e1rio.\n\n\n\n\n\n\n-\n\n\n-\n\n\nO usu\u00e1rio cadastrado pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio cria categorias para organizar as contas.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio pode alterar o nome das categorias.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio pode excluir uma categoria desde que n\u00e3o existam contas vinculadas a esta categoria.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio cria as contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio pode alterar o nome e a categoria de uma conta.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio pode excluir uma conta desde que n\u00e3o existam lan\u00e7amentos vinculados a esta conta.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio faz lan\u00e7amentos nas contas.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio lista as contas com seus respectivos saldos.\n\n\n\n\n\n\nOK\n\n\n-\n\n\nO usu\u00e1rio visualiza as contas com seus respectivos lan\u00e7amentos.\n\n\n\n\n\n\n\n\nvers\u00e3o 2.0.0\n\n\n\n\n\n\n\n\nAPI\n\n\nWeb\n\n\nRequisito\n\n\n\n\n\n\n\n\n\n\n\n\n-\n\n\nO usu\u00e1rio faz lan\u00e7amentos nas contas de: despesa, receita ou pagamento que s\u00e3o recorrentes, de modo a criar uma agenda.\n\n\n\n\n\n\n\n\n-\n\n\nOs lan\u00e7amentos agendados n\u00e3o alteram os saldos das contas enquanto n\u00e3o forem concretizados.\n\n\n\n\n\n\n\n\nRequisitos do administrador do servi\u00e7o\n\n\nEsses s\u00e3o os requisitos e regras de neg\u00f3gio para usu\u00e1rios que ir\u00e3o gerenciar a aplica\u00e7\u00e3o.\n\n\nvers\u00e3o 1.0.0\n\n\n\n\n\n\n\n\nAPI\n\n\nWeb\n\n\nRequisito\n\n\n\n\n\n\n\n\n\n\n-\n\n\n-\n\n\nApenas o usu\u00e1rio \nroot\n pode gerenciar o cadastro de usu\u00e1rios com o papel Administrador.\n\n\n\n\n\n\n-\n\n\n-\n\n\nO usu\u00e1rio \nroot\n e os demais usu\u00e1rios com papel Administrador podem gerenciar o cadastro de usu\u00e1rios com o papel Gerente.\n\n\n\n\n\n\n-\n\n\n-\n\n\nO usu\u00e1rio \nroot\n e os demais usu\u00e1rios com papel Administrador podem bloquear o cadastro de usu\u00e1rios com os papel Usu\u00e1rio.\n\n\n\n\n\n\n-\n\n\n-\n\n\nO usu\u00e1rio com pap\u00e9is de Admministrador ou Gerente podem acessar realat\u00f3rios gerenciais.", 
             "title": "Requisitos"
         }, 
         {
             "location": "/doc-desenvolvimento/1-requisitos/#documento_de_requisitos", 
-            "text": "Atualizado em:  30/03/2018", 
+            "text": "Atualizado em:  08/05/2018", 
             "title": "Documento de Requisitos"
         }, 
         {
-            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_do_usuario_cliente", 
-            "text": "O usu\u00e1rio pode criar uma conta para gerenciar seu or\u00e7amento pessoal.   O usu\u00e1rio pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.   O usu\u00e1rio deve criar um plano de contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.   O usu\u00e1rio deve alimentar o saldo inicial das contas.   O usu\u00e1rio faz lan\u00e7amentos nas contas.   O usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.   O usu\u00e1rio lista os lan\u00e7amentos de uma contas.   O usu\u00e1rio visualiza os saldos das contas.", 
-            "title": "Requisitos do usu\u00e1rio (cliente)"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_do_usuario_empresa", 
-            "text": "O usu\u00e1rio do tipo gerente pode acessar realat\u00f3rios gerenciais.   O usu\u00e1rio do tipo administrador pode acessar realat\u00f3rios gerenciais e gerenciar as contas de usu\u00e1rios.", 
-            "title": "Requisitos do usu\u00e1rio (empresa)"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_da_aplicacao", 
-            "text": "Autentica\u00e7\u00e3o de usu\u00e1rios.   Ao criar uma conta o usu\u00e1rio deve ser direcionado para um processo de alimenta\u00e7\u00e3o das contas iniciais.   O usu\u00e1rio  root  n\u00e3o pode ser exclu\u00eddo.   A aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es do usu\u00e1rio (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o \nde lan\u00e7amentos e acessos)", 
-            "title": "Requisitos da aplica\u00e7\u00e3o"
-        }, 
-        {
             "location": "/doc-desenvolvimento/1-requisitos/#requisitos_de_tecnologia", 
-            "text": "Aplica\u00e7\u00e3o orientada a servi\u00e7o.   Web service Rest.   Cliente web da aplica\u00e7\u00e3o.", 
+            "text": "Arquitetura orientada a servi\u00e7o.   API - Web service RESTful.   Aplica\u00e7\u00e3o Web para consumir a API.   Sistema automatizado de deploy.", 
             "title": "Requisitos de tecnologia"
         }, 
         {
+            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_da_aplicacao", 
+            "text": "Abaixo segue a tabela com a lista de requisitos gerais da aplica\u00e7\u00e3o.", 
+            "title": "Requisitos da aplica\u00e7\u00e3o"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#versao_100", 
+            "text": "API  Web  Requisito      OK  -  Autentica\u00e7\u00e3o de usu\u00e1rios.    OK  -  A aplica\u00e7\u00e3o deve possuir quatro pap\u00e9is de usu\u00e1rio (Super Usu\u00e1rio, Administrador, Gerente e Usu\u00e1rio).    -  -  Deve existir apenas um Super Usu\u00e1rio denominado  root  que n\u00e3o poder\u00e1 ser exclu\u00eddo.    OK  -  Nenhum usu\u00e1rio pode visualizar, alterar ou excluir, ou ainda, criar uma categoria, conta ou lan\u00e7amento de outro usu\u00e1rio.    -  -  A aplica\u00e7\u00e3o deve gerar relat\u00f3rios do tipo lista de usu\u00e1rios (ativos, inativos, bloqueados)    -  -  A aplica\u00e7\u00e3o deve gerar relat\u00f3rio sint\u00e9tico de contas criadas por per\u00edodo", 
+            "title": "vers\u00e3o 1.0.0"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#versao_200", 
+            "text": "API  Web  Requisito      -  -  A aplica\u00e7\u00e3o deve registrar em log as a\u00e7\u00f5es dos usu\u00e1rios (cria\u00e7\u00e3o, altera\u00e7\u00e3o e exclus\u00e3o de lan\u00e7amentos e acessos)", 
+            "title": "vers\u00e3o 2.0.0"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_do_usuario_do_servico", 
+            "text": "", 
+            "title": "Requisitos do usu\u00e1rio do servi\u00e7o"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#versao_101", 
+            "text": "Esses s\u00e3o os requisitos e regras de neg\u00f3cio da aplica\u00e7\u00e3o para usu\u00e1rios que ir\u00e3o criar uma conta no servi\u00e7o a fim de realizarem o controle de suas finan\u00e7as pessoais.     API  Web  Requisito      OK  -  As pessoas que tiverem interesse em usar o servi\u00e7o devem se cadastrar em um formul\u00e1rio p\u00fablico informando o nome completo, endere\u00e7o de e-mail e senha.    -  -  Ap\u00f3s realizar seu cadastro na aplica\u00e7\u00e3o o usu\u00e1rio deve receber um link no e-mail informado, apontando para o endere\u00e7o de ativa\u00e7\u00e3o da conta.    OK  -  Todas as contas para usu\u00e1rios do servi\u00e7o cadastradas atrav\u00e9s do formul\u00e1rio p\u00fablico devem ser atribu\u00eddas ao papel Usu\u00e1rio.    -  -  O usu\u00e1rio cadastrado pode alterar sua senha de acesso a aplica\u00e7\u00e3o e outros dados pessoais.    OK  -  O usu\u00e1rio cria categorias para organizar as contas.    OK  -  O usu\u00e1rio pode alterar o nome das categorias.    OK  -  O usu\u00e1rio pode excluir uma categoria desde que n\u00e3o existam contas vinculadas a esta categoria.    OK  -  O usu\u00e1rio cria as contas observando os grupos Ativo, Passivo, Patrim\u00f4nio Liqu\u00eddo, Receita e Despesa.    OK  -  O usu\u00e1rio pode alterar o nome e a categoria de uma conta.    OK  -  O usu\u00e1rio pode excluir uma conta desde que n\u00e3o existam lan\u00e7amentos vinculados a esta conta.    OK  -  O usu\u00e1rio faz lan\u00e7amentos nas contas.    OK  -  O usu\u00e1rio pode realizar corre\u00e7\u00f5es nos lan\u00e7amentos.    OK  -  O usu\u00e1rio lista as contas com seus respectivos saldos.    OK  -  O usu\u00e1rio visualiza as contas com seus respectivos lan\u00e7amentos.", 
+            "title": "vers\u00e3o 1.0.0"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#versao_201", 
+            "text": "API  Web  Requisito       -  O usu\u00e1rio faz lan\u00e7amentos nas contas de: despesa, receita ou pagamento que s\u00e3o recorrentes, de modo a criar uma agenda.     -  Os lan\u00e7amentos agendados n\u00e3o alteram os saldos das contas enquanto n\u00e3o forem concretizados.", 
+            "title": "vers\u00e3o 2.0.0"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#requisitos_do_administrador_do_servico", 
+            "text": "Esses s\u00e3o os requisitos e regras de neg\u00f3gio para usu\u00e1rios que ir\u00e3o gerenciar a aplica\u00e7\u00e3o.", 
+            "title": "Requisitos do administrador do servi\u00e7o"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/1-requisitos/#versao_102", 
+            "text": "API  Web  Requisito      -  -  Apenas o usu\u00e1rio  root  pode gerenciar o cadastro de usu\u00e1rios com o papel Administrador.    -  -  O usu\u00e1rio  root  e os demais usu\u00e1rios com papel Administrador podem gerenciar o cadastro de usu\u00e1rios com o papel Gerente.    -  -  O usu\u00e1rio  root  e os demais usu\u00e1rios com papel Administrador podem bloquear o cadastro de usu\u00e1rios com os papel Usu\u00e1rio.    -  -  O usu\u00e1rio com pap\u00e9is de Admministrador ou Gerente podem acessar realat\u00f3rios gerenciais.", 
+            "title": "vers\u00e3o 1.0.0"
+        }, 
+        {
             "location": "/doc-desenvolvimento/2-modelagem/", 
-            "text": "Modelagem\n\n\nAtualizado em:\n 30/03/2018\n\n\nBanco de dados\n\n\nModelo conceitual\n\n\n\n\nModelo l\u00f3gico\n\n\nUser (*id, name, email, password, type, remember_token, created_at, updated_at)\n\nCategory (* id, category, created_at, updated_at)\n\nAccount (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account\n\n\n\n\nProcesso\n\n\nCaso de uso\n\n\nCaso de uso - 1\n\n\n\n\nCaso de uso - 2", 
+            "text": "Modelagem\n\n\nAtualizado em:\n 08/05/2018\n\n\nBanco de dados\n\n\nModelo conceitual\n\n\n\n\nModelo l\u00f3gico\n\n\nPermission (* id, name, description, created_at, updated_at)\n\nRole (* id, name, description, created_at, updated_at)\n\nPermission_Role (* id, created_at, updated_at, + permission_id, + role_id)\n    permission_id reference Permission\n    role_id reference Role\n\nUser (* id, name, email, password, account_activated, account_hash, remember_token, created_at, updated_at, deleted_at)\n\nRole_User (* id, created_at, updated_at, + role_id, + user_id)\n    role_id reference Role\n    user_id reference User\n\nCategory (* id, category, created_at, updated_at, + user_id)\n    user_id reference User\n\nAccount (* id, account, type, balance, allow_negative_balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, date, confirmed, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account\n\n\n\n\nCaso de uso\n\n\nCaso de uso - 1\n\n\n\n\nCaso de uso - 2\n\n\n\n\nProcesso", 
             "title": "Modelagem"
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/#modelagem", 
-            "text": "Atualizado em:  30/03/2018", 
+            "text": "Atualizado em:  08/05/2018", 
             "title": "Modelagem"
         }, 
         {
@@ -92,13 +107,8 @@
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/#modelo_logico", 
-            "text": "User (*id, name, email, password, type, remember_token, created_at, updated_at)\n\nCategory (* id, category, created_at, updated_at)\n\nAccount (* id, account, type, balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account", 
+            "text": "Permission (* id, name, description, created_at, updated_at)\n\nRole (* id, name, description, created_at, updated_at)\n\nPermission_Role (* id, created_at, updated_at, + permission_id, + role_id)\n    permission_id reference Permission\n    role_id reference Role\n\nUser (* id, name, email, password, account_activated, account_hash, remember_token, created_at, updated_at, deleted_at)\n\nRole_User (* id, created_at, updated_at, + role_id, + user_id)\n    role_id reference Role\n    user_id reference User\n\nCategory (* id, category, created_at, updated_at, + user_id)\n    user_id reference User\n\nAccount (* id, account, type, balance, allow_negative_balance, created_at, updated_at, + user_id, + category_id)\n    user_id reference User\n    category_id reference Category\n\nTrasactionLog (* id, date, confirmed, description, value, created_at, updated_at, +source_account_id, +destination_account_id)\n    source_account_id reference Account\n    destination_account_id reference Account", 
             "title": "Modelo l\u00f3gico"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/2-modelagem/#processo", 
-            "text": "", 
-            "title": "Processo"
         }, 
         {
             "location": "/doc-desenvolvimento/2-modelagem/#caso_de_uso", 
@@ -114,6 +124,11 @@
             "location": "/doc-desenvolvimento/2-modelagem/#caso_de_uso_-_2", 
             "text": "", 
             "title": "Caso de uso - 2"
+        }, 
+        {
+            "location": "/doc-desenvolvimento/2-modelagem/#processo", 
+            "text": "", 
+            "title": "Processo"
         }, 
         {
             "location": "/doc-desenvolvimento/3-prototipacao/", 
@@ -134,36 +149,6 @@
             "location": "/doc-desenvolvimento/3-prototipacao/#tela_2_-_contas", 
             "text": "", 
             "title": "Tela 2 - Contas"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/4-tecnologias/", 
-            "text": "Tecnologias\n\n\nAtualizado em:\n 30/03/2018\n\n\nPilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.\n\n\n\n\n\n\n\n\nSoftware\n\n\nDescri\u00e7\u00e3o\n\n\nVers\u00e3o\n\n\nLicen\u00e7a\n\n\n\n\n\n\n\n\n\n\nLaravel\n\n\nFramework PHP\n\n\n5.6\n\n\nThe Laravel framework is open-sourced software licensed under the \nMIT license", 
-            "title": "Tecnologias"
-        }, 
-        {
-            "location": "/doc-desenvolvimento/4-tecnologias/#tecnologias", 
-            "text": "Atualizado em:  30/03/2018  Pilha de software utilizada para desenvolvimento da aplica\u00e7\u00e3o.     Software  Descri\u00e7\u00e3o  Vers\u00e3o  Licen\u00e7a      Laravel  Framework PHP  5.6  The Laravel framework is open-sourced software licensed under the  MIT license", 
-            "title": "Tecnologias"
-        }, 
-        {
-            "location": "/doc-instalacao/00-introducao/", 
-            "text": "Tema 2", 
-            "title": "Introdu\u00e7\u00e3o"
-        }, 
-        {
-            "location": "/doc-instalacao/00-introducao/#tema_2", 
-            "text": "", 
-            "title": "Tema 2"
-        }, 
-        {
-            "location": "/doc-usuario-final/00-introducao/", 
-            "text": "Tema 3", 
-            "title": "Introdu\u00e7\u00e3o"
-        }, 
-        {
-            "location": "/doc-usuario-final/00-introducao/#tema_3", 
-            "text": "", 
-            "title": "Tema 3"
         }
     ]
 }
