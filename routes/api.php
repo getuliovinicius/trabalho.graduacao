@@ -13,42 +13,25 @@ use Illuminate\Http\Request;
 |
 */
 
-/**
- * Retorna o usuário
- */
-Route::middleware('auth:api')
-	->get('/user', function (Request $request) {
-		return $request->user();
-	});
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+}); */
 
-/**
- * Registra um usuário
- */
 Route::namespace('Api')->group(function () {
-	Route::post('/usuarios/registrar', 'UserController@register')
-		->name('api.usuarios.register');
+    Route::post('login', 'AuthController@login')->name('api.login');
+    Route::post('register', 'AuthController@register')->name('api.register');
+    Route::post('login-refresh', 'AuthController@loginRefresh')->name('api.login.refresh');
 });
 
-/**
- * CRUD - Veiculos
- */
 Route::middleware('auth:api')->namespace('Api')->group(function () {
-	Route::get('/veiculos', 'VeiculoController@index')
-		->name('api.veiculo.list')
-		->middleware('scope:administrador,usuario');
-	Route::get('/veiculos?page(page)&qtd(qtd)', 'VeiculoController@index')
-		->name('api.veiculo.list-page')
-		->middleware('scope:administrador,usuario');
-	Route::get('/veiculos/{id}', 'VeiculoController@show')
-		->name('api.veiculo.show')
-		->middleware('scope:administrador,usuario');
-	Route::post('/veiculos', 'VeiculoController@store')
-		->name('api.veiculo.store')
-		->middleware('scope:administrador');
-	Route::put('/veiculos/{id}', 'VeiculoController@update')
-		->name('api.veiculo.update')
-		->middleware('scope:administrador');
-	Route::delete('/veiculos/{id}', 'VeiculoController@destroy')
-		->name('api.veiculo.destroy')
-		->middleware('scope:administrador');
+    Route::apiResource('users', 'UserController')->middleware('scopes:Administrador');
+    Route::apiResource('roles', 'RoleController')->middleware('scopes:Administrador');
+    Route::apiResource('permissions', 'PermissionController')->middleware('scopes:Administrador');
+    Route::apiResource('categories', 'CategoryController')->middleware('scopes:Usuário');
+    Route::apiResource('accounts', 'AccountController')->middleware('scopes:Usuário');
+    Route::apiResource('transactions', 'TransactionController')->middleware('scopes:Usuário');
+    Route::get('user', function (Request $request) {
+        return $request->user();
+    })->name('user.show');
+    Route::get('logout', 'AuthController@logout')->name('api.logout');
 });

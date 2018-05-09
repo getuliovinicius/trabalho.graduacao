@@ -18,8 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('account_activated')->default(false);
+            $table->string('account_hash');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

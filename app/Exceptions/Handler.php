@@ -30,8 +30,6 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-     *
      * @param  \Exception  $exception
      * @return void
      */
@@ -49,9 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-		if ($exception instanceof MissingScopeException)
-			return response()->json(['error' => 'Usuário não autorizado.'], 401);
-
+        if ($exception instanceof MissingScopeException) {
+            return response()->json(['message' => 'Unauthorized.'], 401);
+        }
         return parent::render($request, $exception);
     }
 }

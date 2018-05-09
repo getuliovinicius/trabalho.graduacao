@@ -11,17 +11,10 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Auth::routes();
-
-Route::namespace('Web')->group(function () {
-	Route::get('/', 'HomeController@index')->name('home');
-	Route::get('/tokens', function () {
-		return view('auth.tokens');
-	})->name('tokens');
+Route::get('/', function () {
+    return view('web.welcome');
 });
+
+// Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

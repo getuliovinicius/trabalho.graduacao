@@ -2,37 +2,43 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Laravel\Passport\Passport;
 use Carbon\Carbon;
+use Laravel\Passport\Passport;
+use App\Models\Role;
+use App\Models\Category;
+use App\Policies\CategoryPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
-	/**
-	 * The policy mappings for the application.
-	 *
-	 * @var array
-	 */
-	protected $policies = [
-		'App\Model' => 'App\Policies\ModelPolicy',
-	];
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        Category::class => CategoryPolicy::class,
+    ];
 
-	/**
-	 * Register any authentication / authorization services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->registerPolicies();
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerPolicies();
 
-		Passport::routes();
-		Passport::tokensExpireIn(Carbon::now()->addMinutes(3));
-		Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(30));
-		Passport::tokensCan([
-			'administrador' => 'Administrador do sistema',
-			'usuario' => 'Usuário comum'
-		]);
-	}
+        Passport::routes(function ($router) {
+            $router->forAccessTokens();
+            // $router->forPersonalAccessTokens();
+            // $router->forTransientTokens();
+        });
+        Passport::tokensExpireIn(Carbon::now()->addMinutes(30));
+        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(60));
+
+        $roles = array_pluck(Role::all(), 'description', 'name');
+
+        Passport::tokensCan($roles);
+    }
 }
