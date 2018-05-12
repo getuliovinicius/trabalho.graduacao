@@ -49,7 +49,3 @@ Caso de uso
 ### Caso de uso - 2
 
 ![Administração do serviço](diagramas/caso-de-uso-2.png)
-
-Processo
---------
-

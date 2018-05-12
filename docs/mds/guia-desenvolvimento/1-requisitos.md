@@ -9,7 +9,6 @@ Requisitos de tecnologia
 - [X] Arquitetura orientada a serviço.
 - [X] API - Web service RESTful.
 - [ ] Aplicação Web para consumir a API.
-- [ ] Sistema automatizado de deploy.
 
 Requisitos da aplicação
 -----------------------

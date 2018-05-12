@@ -63,14 +63,14 @@ pages:
     - Início: 'index.md'
     - Licença: 'licence.md'
     - Desenvolvimento:
-        - Requisitos: 'doc-desenvolvimento/1-requisitos.md'
-        - Modelagem: 'doc-desenvolvimento/2-modelagem.md'
-        - Prototipação: 'doc-desenvolvimento/3-prototipacao.md'
-        # - Tecnologias: 'doc-desenvolvimento/4-tecnologias.md'
-    # - Instalação:
-        # - Introdução: 'doc-instalacao/00-introducao.md'
-    # - Guia do usuário:
-        # - Introdução: 'doc-usuario-final/00-introducao.md'
+        - Requisitos: 'guia-desenvolvimento/1-requisitos.md'
+        - Modelagem: 'guia-desenvolvimento/2-modelagem.md'
+        - Prototipação: 'guia-desenvolvimento/3-prototipacao.md'
+        - Tecnologias: 'guia-desenvolvimento/4-tecnologias.md'
+    - Guia do usuário:
+        - Introdução: 'guia-usuario/1-introducao.md'
+        - Requisitos: 'guia-usuario/2-requisitos.md'
+        - Instalação: 'guia-usuario/3-instalacao.md'
 
 # Extra
 extra:
