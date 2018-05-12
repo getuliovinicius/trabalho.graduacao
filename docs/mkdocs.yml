@@ -62,15 +62,14 @@ docs_dir: 'mds'
 pages:
     - Início: 'index.md'
     - Licença: 'licence.md'
-    - Desenvolvimento:
+    - Guia de Desenvolvimento:
         - Requisitos: 'guia-desenvolvimento/1-requisitos.md'
         - Modelagem: 'guia-desenvolvimento/2-modelagem.md'
         - Prototipação: 'guia-desenvolvimento/3-prototipacao.md'
         - Tecnologias: 'guia-desenvolvimento/4-tecnologias.md'
     - Guia do usuário:
-        - Introdução: 'guia-usuario/1-introducao.md'
-        - Requisitos: 'guia-usuario/2-requisitos.md'
-        - Instalação: 'guia-usuario/3-instalacao.md'
+        - Desenvolvedor: 'guia-usuario/1-desenvolvedor.md'
+        - Usuário do Serviço: 'guia-usuario/2-usuario-servico.md'
 
 # Extra
 extra:

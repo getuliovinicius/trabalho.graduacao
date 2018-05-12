@@ -4,7 +4,7 @@ README
 Para que serve esse repositório?
 --------------------------------
 
-Este repositório serve para manter organizado e disponível todos os aquivos do meu Trabalho de Graduação (TG).
+Este repositório serve para manter organizado e disponível todos os aquivos do meu [Trabalho de Graduação (TG)](https://getuliovinicius.github.io/trabalho.graduacao/ "Ainda em desenvolvimento").
 
 Para obter informações sobre o software acesse: [https://getuliovinicius.github.io/trabalho.graduacao/](https://getuliovinicius.github.io/trabalho.graduacao/)
 

@@ -8,9 +8,13 @@ Banco de dados
 
 ### Modelo conceitual
 
+Descreve todo o modelo de entidades utilizado para desenvolvimento da versão 1.0.0 da aplicação.
+
 ![DER - Diagrama Entidade Relacionamento](diagramas/der-1.png)
 
 ### Modelo lógico
+
+Desccreve as tabelas do Banco de Dados da aplicação.
 
 ```
 Permission (* id, name, description, created_at, updated_at)
@@ -44,8 +48,12 @@ Caso de uso
 
 ### Caso de uso - 1
 
+Demonstra as funcionalidades disponibilizadas para os usuários do serviço oferecido pela aplicação.
+
 ![Utilização do serviço](diagramas/caso-de-uso-1.png)
 
 ### Caso de uso - 2
+
+Demonstra as funcionalidades disponibilizadas para os administradores de sistema que por ventura possam usar o serviço como negócio.
 
 ![Administração do serviço](diagramas/caso-de-uso-2.png)
