@@ -86,7 +86,7 @@ Em seguida, use o comando `composer install` para fazer o download das dependên
 ```
 $ composer install
 $ php artisan key:generate
-$ php artisan migration --seed
+$ php artisan migrate --seed
 ```
 
 Além das tabelas para o banco de dados, o comando `php artisan migration --seed` cria:
