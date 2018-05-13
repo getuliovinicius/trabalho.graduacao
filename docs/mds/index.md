@@ -1,20 +1,29 @@
 Orçamento Pessoal - tgGV
 ========================
 
-**Versão:** 0.7.0
+**Versão:** 0.7.0 - 13/05/2018
 
 Sobre o projeto
 ---------------
 
-Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciado como parte do [Trabalho de Graduação](downloads/monografia.pdf "Ainda em desenvolvimento") de [Getúlio Vinícius Teixeira da Silva](https://github.com/getuliovinicius "Perfil no GitHub") no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.
+Olá!
+
+Meu nome é [Getúlio Vinícius](https://github.com/getuliovinicius "Perfil no GitHub").
+
+Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciado como parte do meu Trabalho de Graduação (monografia) no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.
 
 Descrição
 ---------
 
 Trata-se de uma aplicação para realização de orçamento pessoal arquitetada da seguinte forma:
 
-+ API RestFull desenvolvida com o framework PHP Laravel, e
++ API REST desenvolvida com o framework PHP Laravel, e
 + Aplicação Web desenvolvida com o framework Javascript Vue.js.
 
 O tgGV tem como objetivo permitir ao usuário a criação de um plano de contas (orçamento pessoal) para controlar suas finanças.
 Através de lançamentos realizados com o método das partidas dobradas, o tgGV permite a visualização das receitas e despesas de modo que o usuário possa compreender como utiliza seu dinheiro.
+
+!!! important "MONOGRAFIA"
+    **Ficou curioso sobre o trabalho?**
+
+    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"). 

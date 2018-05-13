@@ -14,7 +14,7 @@ Descreve todo o modelo de entidades utilizado para desenvolvimento da versão 1.
 
 ### Modelo lógico
 
-Desccreve as tabelas do Banco de Dados da aplicação.
+Descreve as tabelas do Banco de Dados da aplicação.
 
 ```
 Permission (* id, name, description, created_at, updated_at)

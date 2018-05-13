@@ -4,7 +4,7 @@ README
 Para que serve esse repositório?
 --------------------------------
 
-Este repositório serve para manter organizado e disponível todos os aquivos do meu [Trabalho de Graduação (TG)](https://getuliovinicius.github.io/trabalho.graduacao/ "Ainda em desenvolvimento").
+Este repositório serve para manter organizado e disponível todos os aquivos do meu [Trabalho de Graduação (TG)](https://getuliovinicius.github.io/trabalho.graduacao/downloads/monografia.pdf "Ainda em desenvolvimento").
 
 Para obter informações sobre o software acesse: [https://getuliovinicius.github.io/trabalho.graduacao/](https://getuliovinicius.github.io/trabalho.graduacao/)
 
@@ -26,10 +26,10 @@ Decidi pesquisar sobre **Documentação de Software** e meu tema será:
 
 DOCUMENTANDO PROJETO DE SOFTWARE - _A linguagem Markdown como ferramenta de documentação de Projeto de Software_
 
-Quem irá me orientar?
+Quem me orientou?
 ---------------------
 
-A professora Dra. Jaqueline Brigladori Pugliesi será minha orientadora.
+A professora Dra. Jaqueline Brigladori Pugliesi FOI minha orientadora.
 
 Outras coisas
 -------------

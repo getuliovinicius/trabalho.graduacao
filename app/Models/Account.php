@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    protected $fillable = ['name', 'type', 'balance', 'user_id', 'category_id'];
+    protected $fillable = ['name', 'type', 'allow_negative_balance', 'balance', 'user_id', 'category_id'];
 
     /**
      * Gets account-related transactions. (account source)

@@ -47,6 +47,7 @@ E por fim, as tecnologias utilizadas para produzir a documentação da aplicaç�
 | Software | Versão | Descrição | Licença |
 |:----- |:-----:|:----- |:----- |
 | Python | 2.7.13 | Linguagem de programação sob a qual as ferramentas de conversão de Markdown para HTML foi escrita. | [PSF LICENSE AGREEMENT FOR PYTHON 2.7.15](https://docs.python.org/2.7/license.html).|
+| pip | 10.0.1 | Ferramenta para instalar pacotes Python. | [MIT License (MIT)](https://github.com/pypa/pip/blob/master/LICENSE.txt) |
 | Python virtualenv | 15.2.0 | Ferramenta para criar ambientes Python isolados. | [MIT license](https://github.com/pypa/virtualenv/blob/master/LICENSE.txt) |
 | Python virtualenvwrapper | 4.8.2 | Conjunto de extensões para a ferramenta Python virtualenv | [Licence](https://virtualenvwrapper.readthedocs.io/en/latest/#license) |
 | MkDocs | 0.17.2 | Ferramenta geradora de sites estáticos a partir de texto estruturado em Markdown escrito em linguagem Python. | [MkDocs License (BSD)](http://www.mkdocs.org/about/license/) |

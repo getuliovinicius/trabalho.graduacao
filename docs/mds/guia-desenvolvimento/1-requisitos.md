@@ -9,7 +9,7 @@ Requisitos para a versão 1.0.0
 ### Requisitos de tecnologia
 
 - [X] Arquitetura orientada a serviço.
-- [X] API - Web service RESTful.
+- [X] API - Web service REST.
 - [ ] Aplicação Web para consumir a API.
 
 ### Requisitos da aplicação
@@ -27,7 +27,7 @@ Abaixo segue a tabela com a lista de requisitos gerais da aplicação.
 
 ### Requisitos do usuário do serviço
 
-Esses são os requisitos e regras de negócio da aplicação para usuários que irão criar uma conta no serviço a fim de realizarem o controle de suas finanças pessoais.
+Esses são os requisitos e regras de negócio da aplicação para usuários que irão criarão uma conta no serviço a fim de realizarem o controle de suas finanças pessoais.
 
 | API | Web | Requisito |
 |:---:|:---:|:--------- |
@@ -38,7 +38,7 @@ Esses são os requisitos e regras de negócio da aplicação para usuários que 
 | OK  |  -  | O usuário cria categorias para organizar as contas. |
 | OK  |  -  | O usuário pode alterar o nome das categorias. |
 | OK  |  -  | O usuário pode excluir uma categoria desde que não existam contas vinculadas a esta categoria. |
-| OK  |  -  | O usuário cria as contas observando os grupos Ativo, Passivo, Patrimônio Liquído, Receita e Despesa. |
+| OK  |  -  | O usuário cria as contas observando os grupos Ativo, Passivo, Patrimônio Líquido, Receita e Despesa. |
 | OK  |  -  | O usuário pode alterar o nome e a categoria de uma conta. |
 | OK  |  -  | O usuário pode excluir uma conta desde que não existam lançamentos vinculados a esta conta. |
 | OK  |  -  | O usuário faz lançamentos nas contas. |
@@ -49,14 +49,14 @@ Esses são os requisitos e regras de negócio da aplicação para usuários que 
 
 ### Requisitos do administrador do serviço
 
-Esses são os requisitos e regras de negógio para usuários que irão gerenciar a aplicação.
+Esses são os requisitos e regras de negócio para usuários que gerenciarão a aplicação.
 
 | API | Web | Requisito |
 |:---:|:---:|:--------- |
 |  -  |  -  | Apenas o usuário `root` pode gerenciar o cadastro de usuários com o papel Administrador. |
 |  -  |  -  | O usuário `root` e os demais usuários com papel Administrador podem gerenciar o cadastro de usuários com o papel Gerente. |
-|  -  |  -  | O usuário `root` e os demais usuários com papel Administrador podem bloquear o cadastro de usuários com os papel Usuário. |
-|  -  |  -  | O usuário com papéis de Admministrador ou Gerente podem acessar realatórios gerenciais. |
+|  -  |  -  | O usuário `root` e os demais usuários com papel Administrador podem bloquear o cadastro de usuários com o papel Usuário. |
+|  -  |  -  | O usuário com papéis de Administrador ou Gerente podem acessar relatórios gerenciais. |
 
 Requisitos da versão 2.0.0
 --------------------------
