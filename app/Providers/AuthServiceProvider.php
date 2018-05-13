@@ -37,8 +37,16 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensExpireIn(Carbon::now()->addMinutes(30));
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(60));
 
-        $roles = array_pluck(Role::all(), 'description', 'name');
+        // $roles = array_pluck(Role::all(), 'description', 'name');
 
-        Passport::tokensCan($roles);
+        // Passport::tokensCan($roles);
+        Passport::tokensCan(
+            [
+                'Super Usuário' => 'Gerência usuários com papel Administrador',
+                'Administrador' => 'Gerência usuários com papel Gerente',
+                'Gerente' => 'Acessa relatórios gerenciais da aplicação',
+                'Usuário' => 'Usuário do serviço'
+            ]
+        );
     }
 }
