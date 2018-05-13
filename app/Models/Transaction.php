@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['date', 'description', 'value', 'source_account_id', 'destination_account_id'];
+    protected $fillable = ['date', 'cofirmed', 'description', 'value', 'source_account_id', 'destination_account_id'];
 
     /**
      * Gets the transaction's source account.

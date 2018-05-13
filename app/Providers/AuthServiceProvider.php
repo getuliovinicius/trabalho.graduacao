@@ -8,6 +8,7 @@ use Laravel\Passport\Passport;
 use App\Models\Role;
 use App\Models\Category;
 use App\Policies\CategoryPolicy;
+use Illuminate\Support\Facades\Schema;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -37,8 +38,19 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensExpireIn(Carbon::now()->addMinutes(30));
         Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(60));
 
-        $roles = array_pluck(Role::all(), 'description', 'name');
+        if (Schema::hasTable('roles')) {
+            $roles = array_pluck(Role::all(), 'description', 'name');
 
-        Passport::tokensCan($roles);
+            Passport::tokensCan($roles);
+        } else {
+            Passport::tokensCan(
+                [
+                    'Super Usuário' => 'Gerência usuários com papel Administrador',
+                    'Administrador' => 'Gerência usuários com papel Gerente',
+                    'Gerente' => 'Acessa relatórios gerenciais da aplicação',
+                    'Usuário' => 'Usuário do serviço'
+                ]
+            );
+        }
     }
 }
