@@ -22,11 +22,11 @@ class RolesTableSeeder extends Seeder
                 'description' => 'Gerência usuários com papel Gerente'
             ],
             [
-                'name' => 'Super Usuário',
+                'name' => 'Gerente',
                 'description' => 'Acessa relatórios gerenciais da aplicação'
             ],
             [
-                'name' => 'Super Usuário',
+                'name' => 'Usuário',
                 'description' => 'Usuário do serviço'
             ]
         );
