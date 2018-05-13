@@ -35,6 +35,7 @@ Esses são os requisitos e regras de negócio da aplicação para usuários que 
 |  -  |  -  | Após realizar seu cadastro na aplicação o usuário deve receber um link no e-mail informado, apontando para o endereço de ativação da conta. |
 | OK  |  -  | Todas as contas para usuários do serviço cadastradas através do formulário público devem ser atribuídas ao papel Usuário. |
 |  -  |  -  | O usuário cadastrado pode alterar sua senha de acesso a aplicação e outros dados pessoais. |
+|  -  |  -  | O usuário cadastrado pode remover seu cadastro do serviço. |
 | OK  |  -  | O usuário cria categorias para organizar as contas. |
 | OK  |  -  | O usuário pode alterar o nome das categorias. |
 | OK  |  -  | O usuário pode excluir uma categoria desde que não existam contas vinculadas a esta categoria. |
