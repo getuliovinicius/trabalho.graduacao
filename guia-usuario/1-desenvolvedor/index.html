@@ -624,7 +624,7 @@ DB_DATABASE=/absolute/path/to/trabalho.graduacao/database/database.sqlite
 <p>Em seguida, use o comando <code class="codehilite">composer install</code> para fazer o download das dependências de back-end do projeto; o comando <code class="codehilite">php artisan key:generate</code> para gerar a chave de criptografia da aplicação; e o comando <code class="codehilite">php artisan migration</code> para criar as tabelas no banco de dados.</p>
 <div class="codehilite"><pre><span></span>$ composer install
 $ php artisan key:generate
-$ php artisan migration --seed
+$ php artisan migrate --seed
 </pre></div>
 
 <p>Além das tabelas para o banco de dados, o comando <code class="codehilite">php artisan migration --seed</code> cria:</p>
