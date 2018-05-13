@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -133,7 +132,8 @@ class AuthController extends Controller
         }
 
         $credentials = $request->only(['name', 'email', 'password']);
-        $credentials['password'] = Hash::make($credentials['password']);
+        $credentials['password'] = bcrypt($credentials['password']);
+        $credentials['account_hash'] = bcrypt(today());
 
         DB::beginTransaction();
 

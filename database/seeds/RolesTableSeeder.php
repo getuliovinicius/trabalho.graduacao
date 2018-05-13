@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class RolesTableSeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(
+        DB::table('roles')->insert([
             [
                 'name' => 'Super Usuário',
                 'description' => 'Gerência usuários com papel Administrador'
@@ -22,13 +22,13 @@ class RolesTableSeeder extends Seeder
                 'description' => 'Gerência usuários com papel Gerente'
             ],
             [
-                'name' => 'Super Usuário',
+                'name' => 'Gerente',
                 'description' => 'Acessa relatórios gerenciais da aplicação'
             ],
             [
-                'name' => 'Super Usuário',
+                'name' => 'Usuário',
                 'description' => 'Usuário do serviço'
             ]
-        );
+        ]);
     }
 }
