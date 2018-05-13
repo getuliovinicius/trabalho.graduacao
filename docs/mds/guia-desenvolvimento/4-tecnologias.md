@@ -3,7 +3,7 @@ Tecnologias
 
 **Atualizado em:** 12/05/2018
 
-Desenvolvimento e Produção
+Desenvolvimento e produção
 --------------------------
 
 Pilha de software - tecnologias - utilizadas para o desenvolvimento e implantação da aplicação em modo de produção.
@@ -47,6 +47,8 @@ E por fim, as tecnologias utilizadas para produzir a documentação da aplicaç�
 | Software | Versão | Descrição | Licença |
 |:----- |:-----:|:----- |:----- |
 | Python | 2.7.13 | Linguagem de programação sob a qual as ferramentas de conversão de Markdown para HTML foi escrita. | [PSF LICENSE AGREEMENT FOR PYTHON 2.7.15](https://docs.python.org/2.7/license.html).|
+| Python virtualenv | 15.2.0 | Ferramenta para criar ambientes Python isolados. | [MIT license](https://github.com/pypa/virtualenv/blob/master/LICENSE.txt) |
+| Python virtualenvwrapper | 4.8.2 | Conjunto de extensões para a ferramenta Python virtualenv | [Licence](https://virtualenvwrapper.readthedocs.io/en/latest/#license) |
 | MkDocs | 0.17.2 | Ferramenta geradora de sites estáticos a partir de texto estruturado em Markdown escrito em linguagem Python. | [MkDocs License (BSD)](http://www.mkdocs.org/about/license/) |
 | MkDocs Material | 2.6.6 | Extensão de tema visual para o MkDocs | [MIT license](https://squidfunk.github.io/mkdocs-material/license/) |
 | Draw.io | 8.6.3 | Ferramenta para criação de diagramas. | [Apache v2](https://github.com/jgraph/drawio) |

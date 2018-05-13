@@ -78,10 +78,25 @@ DB_DATABASE=/absolute/path/to/trabalho.graduacao/database/database.sqlite
 
 Lembre-se de alterar `/absolute/path/to` pelo nome correto dos diretórios acima do diretório `trabalho.graduação`.
 
-Em seguida, use o comando `composer install` para fazer o download das dependências de back-end do projeto.
+Em seguida, use o comando `composer install` para fazer o download das dependências de back-end do projeto; o comando `php artisan key:generate` para gerar a chave de criptografia da aplicação; e o comando `php artisan migration` para criar as tabelas no banco de dados.
 
 ```
 $ composer install
+$ php artisan key:generate
+$ php artisan migration
+```
+
+Para concluir a instalação do back-end, execute o comando `php artisan passport:install` para gerar as chaves de clientes para a criação de tokens para acessoa a API.
+
+```
+$ php artisan passport:install
+```
+
+Copie o `CLIENT ID` e a `CLIENT Secret` gerados para `Password grant` e insira-os no arquivo `.env` após o sinar de igual (sem espaços) nas variaveis `PASSWORD_CLIENT_ID` e `PASSWORD_CLIENT_SECRET`.
+
+```env
+PASSWORD_CLIENT_ID=
+PASSWORD_CLIENT_SECRET=
 ```
 
 Por fim, use o comando `npm install` para fazer o download das dependências de front-end do projeto, e o comando `npm run dev`, para gerar os arquivos `.css` e `.js` do front-end da aplicação.
@@ -90,6 +105,11 @@ Por fim, use o comando `npm install` para fazer o download das dependências de 
 $ npm install
 $ npm run dev
 ```
+
+Desenvolvendo a documentação
+----------------------------
+
+
 
 Uso da API
 ----------
