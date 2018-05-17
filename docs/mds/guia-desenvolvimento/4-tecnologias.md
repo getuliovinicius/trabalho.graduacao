@@ -19,7 +19,7 @@ Pilha de software - tecnologias - utilizadas para o desenvolvimento e implantaç
 | CSS  | 3 | Folhas de estilos para páginas HTML. | - |
 | Vue.js | 2.5.7 | Framework para desenvolvimento Javascript utilizado para criação da aplicação Web client side ou front-end. | [MIT license](https://opensource.org/licenses/MIT) |
 | Bootstrap | 4.0.0 | Framework para criação de componentes visualmente estilizados com CSS para as páginas HTML. | [MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE) |
-| Laravel Passport | 6.0.0 | Complemento para o framework Laravel que prove uma implementação do servidor de autorização token OAuth2. | [MIT license](https://opensource.org/licenses/MIT) |
+| Laravel Passport | 6.0.0 | Complemento para o framework Laravel que prove uma implementação do protocolo de autorização OAuth2. | [MIT license](https://opensource.org/licenses/MIT) |
 
 Os frameworks utilizados ainda contam com outros softwares como dependência que não necessitam serem citados em sua totalidade.
 
@@ -37,7 +37,7 @@ Também foram utilizadas diversas tecnologias apenas para o desenvolvimento e ve
 | Node.js | 8.11.1 | Plataforma para desenvolvimento de aplicações utilizando Javascript. | [Licence](https://github.com/nodejs/node/blob/master/LICENSE) |
 | Insomnia | 5.16.2 | Cliente para testes de APIs REST. | [MIT](https://github.com/getinsomnia/insomnia/blob/develop/LICENSE) |
 
-Além das tecnologias citadas acima, o desenvolvimento deste aplicativo utilizou o serviço de repositórios do [GitHub](https://github.com).
+Além das tecnologias citadas acima, o desenvolvimento dessa aplicação utilizou o serviço de repositórios do [GitHub](https://github.com).
 
 Documentação
 ------------
@@ -51,7 +51,7 @@ E por fim, as tecnologias utilizadas para produzir a documentação da aplicaç�
 | Python virtualenv | 15.2.0 | Ferramenta para criar ambientes Python isolados. | [MIT license](https://github.com/pypa/virtualenv/blob/master/LICENSE.txt) |
 | Python virtualenvwrapper | 4.8.2 | Conjunto de extensões para a ferramenta Python virtualenv | [Licence](https://virtualenvwrapper.readthedocs.io/en/latest/#license) |
 | MkDocs | 0.17.2 | Ferramenta geradora de sites estáticos a partir de texto estruturado em Markdown escrito em linguagem Python. | [MkDocs License (BSD)](http://www.mkdocs.org/about/license/) |
-| MkDocs Material | 2.6.6 | Extensão de tema visual para o MkDocs | [MIT license](https://squidfunk.github.io/mkdocs-material/license/) |
+| MkDocs Material | 2.6.6 | Extensão de tema visual para o MkDocs. | [MIT license](https://squidfunk.github.io/mkdocs-material/license/) |
 | Draw.io | 8.6.3 | Ferramenta para criação de diagramas. | [Apache v2](https://github.com/jgraph/drawio) |
 
 Os softwares utilizados ainda contam com outros softwares como dependência que não necessitam serem citados em sua totalidade.
