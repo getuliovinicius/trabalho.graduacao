@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
-        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700|Noto+Mono">
+        <style>body,input{font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Noto Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -589,11 +589,11 @@
 <p>Veja como <a href="./#desenvolvendo_a_documentacao">configurar o ambiente</a>.</p>
 <h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
 <p>Com todos os requisitos para o desenvolvimento do projeto instalados, clone o repositório que está armazenado no <a href="https://github.com/getuliovinicius/trabalho.graduacao" title="Link para o repositório">GitHub</a>.</p>
-<div class="codehilite"><pre><span></span>$ git clone https://github.com/getuliovinicius/trabalho.graduacao.git
+<div class="codehilite"><pre><span></span>git clone https://github.com/getuliovinicius/trabalho.graduacao.git
 </pre></div>
 
 <p>Após o término do clone, acesse o diretório <code class="codehilite">trabalho.graduacao</code>.</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> trabalho.graduacao
+<div class="codehilite"><pre><span></span>cd trabalho.graduacao
 </pre></div>
 
 <p>Para configurar o ambiente, renomeie o arquivo <code class="codehilite"><span class="na">.env.exemple</span></code> para <code class="codehilite"><span class="na">.env</span></code> e edite-o ajustando os parâmetros conforme sua necessidade. Mais informações podem ser obtidas em:</p>
@@ -603,7 +603,7 @@
 </ul>
 <p>Neste documento, vamos assumir que tenha optado por uma instalação do <a href="https://sqlite.org/download.html" title="Link para a página de Donwload do SQLite">SQLite</a> como gerenciador de banco de dados. Embora não tenha sido este o gerenciador utilizado no desenvolvimento do projeto, ele serve perfeitamente para a realização de uma instalação rápida do tgGV.</p>
 <p>Crie um arquivo chamado <code class="codehilite">database.sqlite</code> no diretório <code class="codehilite">database</code>.</p>
-<div class="codehilite"><pre><span></span>$ touch database/database.sqlite
+<div class="codehilite"><pre><span></span>touch database/database.sqlite
 </pre></div>
 
 <p>Após, remova as linhas abaixo no arquivo <code class="codehilite"><span class="na">.env</span></code>:</p>
@@ -622,9 +622,9 @@ DB_DATABASE=/absolute/path/to/trabalho.graduacao/database/database.sqlite
 
 <p>Lembre-se de alterar <code class="codehilite">/absolute/path/to</code> pelo nome correto dos diretórios acima do diretório <code class="codehilite">trabalho.graduação</code>.</p>
 <p>Em seguida, use o comando <code class="codehilite">composer install</code> para fazer o download das dependências de back-end do projeto; o comando <code class="codehilite">php artisan key:generate</code> para gerar a chave de criptografia da aplicação; e o comando <code class="codehilite">php artisan migration</code> para criar as tabelas no banco de dados.</p>
-<div class="codehilite"><pre><span></span>$ composer install
-$ php artisan key:generate
-$ php artisan migrate --seed
+<div class="codehilite"><pre><span></span>composer install
+php artisan key:generate
+php artisan migrate --seed
 </pre></div>
 
 <p>Além das tabelas para o banco de dados, o comando <code class="codehilite">php artisan migration --seed</code> cria:</p>
@@ -634,7 +634,7 @@ $ php artisan migrate --seed
 <li>o vínculo entre o usuário <code class="codehilite">root</code> e o papel <code class="codehilite">Super Usuário</code> na tabela <code class="codehilite"><span class="n">role_user</span></code>.</li>
 </ul>
 <p>Para concluir a instalação do back-end, execute o comando <code class="codehilite">php artisan passport:install</code> para gerar as chaves de clientes para a criação de tokens para acessoa a API.</p>
-<div class="codehilite"><pre><span></span>$ php artisan passport:install
+<div class="codehilite"><pre><span></span>php artisan passport:install
 </pre></div>
 
 <p>Copie o <code class="codehilite">CLIENT ID</code> e a <code class="codehilite">CLIENT Secret</code> gerados para <code class="codehilite">Password grant</code> e insira-os no arquivo <code class="codehilite"><span class="na">.env</span></code> após o sinar de igual (sem espaços) nas variáveis <code class="codehilite">PASSWORD_CLIENT_ID</code> e <code class="codehilite">PASSWORD_CLIENT_SECRET</code>.</p>
@@ -643,12 +643,12 @@ PASSWORD_CLIENT_SECRET=
 </pre></div>
 
 <p>Por fim, use o comando <code class="codehilite">npm install</code> para fazer o download das dependências de front-end do projeto, e o comando <code class="codehilite">npm run dev</code>, para gerar os arquivos <code class="codehilite"><span class="na">.css</span></code> e <code class="codehilite"><span class="na">.js</span></code> do front-end da aplicação.</p>
-<div class="codehilite"><pre><span></span>$ npm install
-$ npm run dev
+<div class="codehilite"><pre><span></span>npm install
+npm run dev
 </pre></div>
 
 <p>Para subir a aplicação execute:</p>
-<div class="codehilite"><pre><span></span>$ php artisan serve
+<div class="codehilite"><pre><span></span>php artisan serve
 </pre></div>
 
 <p>Agora você pode <a href="./#uso_da_api">testar a API</a> ou acessar a aplicação web através do navegador: <a href="http://localhost:8000" title="Link para a aplicação web">http://localhost:8000</a>. </p>
@@ -656,20 +656,20 @@ $ npm run dev
 <p>Com todos os requisitos para suporte ao desenvolvimento da documentação já instalados, você pode editar os arquivos que são armazenados por padrão no diretório <code class="codehilite">docs</code>.</p>
 <p>Para executar o servidor web para visualizar o resultado é preciso configurar o ambiente. Para isso, presumindo que já enha instalado o Python, pip, virtualenv e virtualenvwrapper, siga os seguintes passos:</p>
 <p>Crie o ambiente virtual.</p>
-<div class="codehilite"><pre><span></span>$ mkvirtualenv documentacao
+<div class="codehilite"><pre><span></span>mkvirtualenv documentacao
 </pre></div>
 
 <p>Instale o MkDocs Material</p>
-<div class="codehilite"><pre><span></span>$ pip install mkdocs-material
+<div class="codehilite"><pre><span></span>pip install mkdocs-material
 </pre></div>
 
 <p>Todas as dependências, inclusive o MkDocs serão instaladas automaticamente.</p>
 <p>No diretório do projeto <code class="codehilite">trabalho.graduacao</code>, vá para o diretório <code class="codehilite">docs</code>.</p>
-<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> docs
+<div class="codehilite"><pre><span></span>cd docs
 </pre></div>
 
 <p>Então, execute:</p>
-<div class="codehilite"><pre><span></span>$ mkdocs serve -a localhost:8080
+<div class="codehilite"><pre><span></span>mkdocs serve -a localhost:8080
 </pre></div>
 
 <p>Agora você pode visualizar a documentação no navegador: <a href="http://localhost:8080" title="Link para a documentação do projeto">http://localhost:8080</a>.</p>
