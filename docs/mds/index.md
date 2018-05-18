@@ -15,7 +15,7 @@ Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciad
 !!! important "MONOGRAFIA"
     **Ficou curioso sobre o trabalho?**
 
-    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"). 
+    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"), que está em desenvolvimento. 
 
 Descrição
 ---------

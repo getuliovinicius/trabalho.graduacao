@@ -10,6 +10,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailAuthUser;
 
 class AuthController extends Controller
 {
@@ -143,12 +145,14 @@ class AuthController extends Controller
             $user->roles()->attach($role->id);
 
             DB::commit();
-
-            return response()->json([$user], 201);
         } catch (\Exception $e) {
             DB::rollBack();
-
+            
             return response()->json(['message' => 'Internal server error.'], 500);
         }
+
+        Mail::to($user->email)->send(new MailAuthUser($user));
+        
+        return response()->json([$user], 201);
     }
 }

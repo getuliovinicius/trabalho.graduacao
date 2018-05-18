@@ -52,8 +52,8 @@ theme:
         primary: 'teal'
         accent: 'teal'
     font:
-        text: 'Ubuntu'
-        code: 'Ubuntu Mono'
+        text: 'Noto Sans'
+        code: 'Noto Mono'
     feature:
         tabs: true
 
