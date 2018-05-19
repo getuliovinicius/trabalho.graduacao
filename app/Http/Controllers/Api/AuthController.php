@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Mail\UserRegisterMail;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\MailAuthUser;
+use App\Jobs\SendUserRegisterMail;
 
 class AuthController extends Controller
 {
@@ -135,7 +136,7 @@ class AuthController extends Controller
 
         $credentials = $request->only(['name', 'email', 'password']);
         $credentials['password'] = bcrypt($credentials['password']);
-        $credentials['account_hash'] = bcrypt(today());
+        $credentials['account_hash'] = base64_encode($credentials['email']);
 
         DB::beginTransaction();
 
@@ -147,12 +148,14 @@ class AuthController extends Controller
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            
+
             return response()->json(['message' => 'Internal server error.'], 500);
         }
 
-        Mail::to($user->email)->send(new MailAuthUser($user));
-        
+        // Mail::to($user->email)->send(new UserRegisterMail($user));
+        // Mail::to($user->email)->queue(new UserRegisterMail($user));
+        dispatch(new SendUserRegisterMail($user));
+
         return response()->json([$user], 201);
     }
 }

@@ -14,6 +14,7 @@ Para rodar o código é imprescindível que tenha instalado:
 
 + [PHP 7.1.3 ou superior](http://php.net/manual/pt_BR/install.php "Link para documentação do PHP")
 + [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx "Link para a documentação do Composer")
++ [Redis](https://redis.io/download "link para a documentação do Redis")
 + [Git](https://git-scm.com/download/linux "Link para a documentação do Git")
 + [Node.js](https://nodejs.org/en/download/package-manager/ "Link para a documentação do Node.js")
 + Um gerenciador de banco de dados podendo ser:
@@ -94,6 +95,12 @@ Além das tabelas para o banco de dados, o comando `php artisan migration --seed
 + o usuário `root`, que inicialmente terá como senha "123456" (calma, no futuro não será assim),
 + os papéis de usuário - tabela `roles`, e
 + o vínculo entre o usuário `root` e o papel `Super Usuário` na tabela `role_user`.
+
+Para gerenciar a fila de envio de e-mails utilizando o servidor [Redis](https://redis.io), instale o pacote `predis/predis`.
+
+```
+composer require predis/predis
+```
 
 Para concluir a instalação do back-end, execute o comando `php artisan passport:install` para gerar as chaves de clientes para a criação de tokens para acessoa a API.
 

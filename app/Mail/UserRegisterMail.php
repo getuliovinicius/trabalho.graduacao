@@ -5,10 +5,9 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
 
-class MailAuthUser extends Mailable
+class UserRegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,13 +30,13 @@ class MailAuthUser extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.auth.user')
+        return $this->markdown('emails.user.register')
             ->with(
                 [
                     'name' => $this->user->name,
                     'url' => url('/api/register/' . $this->user->account_hash)
                 ]
             )
-            ->subject("Confirmar registro - tgGV");
+            ->subject('Confirmar registro - tgGV');
     }
 }
