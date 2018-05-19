@@ -32,7 +32,7 @@ Esses são os requisitos e regras de negócio da aplicação para usuários que 
 | API | Web | Requisito |
 |:---:|:---:|:--------- |
 | OK  |  -  | As pessoas que tiverem interesse em usar o serviço devem se cadastrar em um formulário público informando o nome completo, endereço de e-mail e senha. |
-|  -  |  -  | Após realizar seu cadastro na aplicação o usuário deve receber um link no e-mail informado, apontando para o endereço de ativação da conta. |
+| OK  |  -  | Após realizar seu cadastro na aplicação o usuário deve receber um link no e-mail informado, apontando para o endereço de ativação da conta. |
 | OK  |  -  | Todas as contas para usuários do serviço cadastradas através do formulário público devem ser atribuídas ao papel Usuário. |
 |  -  |  -  | O usuário cadastrado pode alterar sua senha de acesso a aplicação e outros dados pessoais. |
 |  -  |  -  | O usuário cadastrado pode remover seu cadastro do serviço. |

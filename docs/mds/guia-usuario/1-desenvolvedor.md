@@ -102,6 +102,8 @@ Para gerenciar a fila de envio de e-mails utilizando o servidor [Redis](https://
 composer require predis/predis
 ```
 
+Para monitorar o serviço de filas, é preciso configurar o [Supervisor](), siga as intruções em [https://laravel.com/docs/5.6/queues#supervisor-configuration](https://laravel.com/docs/5.6/queues#supervisor-configuration)
+
 Para concluir a instalação do back-end, execute o comando `php artisan passport:install` para gerar as chaves de clientes para a criação de tokens para acessoa a API.
 
 ```

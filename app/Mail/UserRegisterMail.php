@@ -34,7 +34,7 @@ class UserRegisterMail extends Mailable
             ->with(
                 [
                     'name' => $this->user->name,
-                    'url' => url('/api/register/' . $this->user->account_hash)
+                    'url' => url('/api/activation-user/' . $this->user->account_hash)
                 ]
             )
             ->subject('Confirmar registro - tgGV');

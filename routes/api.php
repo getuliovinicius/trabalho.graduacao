@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::namespace('Api')->group(function () {
     Route::post('login', 'AuthController@login')->name('api.login');
     Route::post('register', 'AuthController@register')->name('api.register');
+    Route::get('activation-user/{token}', 'AuthController@activationUser')->name('api.activationUser');
     Route::post('login-refresh', 'AuthController@loginRefresh')->name('api.login.refresh');
 });
 
