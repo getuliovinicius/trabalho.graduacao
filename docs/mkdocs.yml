@@ -52,8 +52,8 @@ theme:
         primary: 'teal'
         accent: 'teal'
     font:
-        text: 'Ubuntu'
-        code: 'Ubuntu Mono'
+        text: 'Noto Sans'
+        code: 'Noto Mono'
     feature:
         tabs: true
 
@@ -73,4 +73,4 @@ pages:
 
 # Extra
 extra:
-    version: 0.3.0
+    version: 0.8.0

@@ -342,3 +342,56 @@ $ pip install mkdocs
 11. Iniciar um projeto com "MkDocs".
 
 $ mkdocs new .
+
+
+http://docutils.sourceforge.net/mirror/setext/setext_concepts_Aug92.etx.txt
+
+Ian Feldman
+
+# Mensagem de: Ian Feldman, o atual Oracle Setext
+# Data: dom, 16 ago 92 08:19:00 +0100 (CET)
+# Reply-To: setext-list@random.se (Guardiões do Setext Flame [tm])
+# Substitui: setext_concepts_Mar92.etx
+# Linhas: 240
+Assunto: setext_concepts_Aug92.etx
+
+http://www.aaronsw.com/2002/atx/intro
+
+https://pt.wikipedia.org/wiki/MediaWiki
+
+http://docutils.sourceforge.net/rst.html
+
+
+315, 322 Learning PHP 7
+Antonio Lopez
+BIRMINGHAM - MUMBAI
+
+Packt Publishing
+
+Packt Publishing
+d: March 2016
+
+Published by Packt Publishing Ltd.
+Livery Place
+35 Livery Street
+Birmingham B3 2PB, UK.
+ISBN 978-1-78588-054-4
+
+
+https://oauth.net/2/
+
+OAuth 2.0
+
+Como caso de uso para o estudo elaborado sobre documentação de software, foi desenvolvido um projeto de um SI, que nas palavras de [CITATION Bel12 \p 6 \l 1046 ] é definido como “um conjunto de componentes relacionados entre si que coletam (ou recuperam), processam, armazenam e distribuem informações que servem para apoiar a tomada de decisões, a coordenação e o controle de uma organização”.
+
+http://nvie.com/posts/a-successful-git-branching-model/
+
+https://semver.org/lang/pt-BR/
+
+Walker de Alencar Oliveira 
+
+Versionamento Semântico 2.0.0
+Tom Preston-Werner
+
+Um número de versão normal DEVE ter o formato de X.Y.Z, onde X, Y, e Z são inteiros não negativos, e NÃO DEVE conter zeros à esquerda. X é a versão Maior, Y é a versão Menor, e Z é a versão de Correção. Cada elemento DEVE aumentar numericamente. Por exemplo: 1.9.0 -> 1.10.0 -> 1.11.0.
+
