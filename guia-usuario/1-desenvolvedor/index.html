@@ -567,6 +567,7 @@
 <ul>
 <li><a href="http://php.net/manual/pt_BR/install.php" title="Link para documentação do PHP">PHP 7.1.3 ou superior</a></li>
 <li><a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx" title="Link para a documentação do Composer">Composer</a></li>
+<li><a href="https://redis.io/download" title="link para a documentação do Redis">Redis</a></li>
 <li><a href="https://git-scm.com/download/linux" title="Link para a documentação do Git">Git</a></li>
 <li><a href="https://nodejs.org/en/download/package-manager/" title="Link para a documentação do Node.js">Node.js</a></li>
 <li>Um gerenciador de banco de dados podendo ser:<ul>
@@ -633,6 +634,11 @@ php artisan migrate --seed
 <li>os papéis de usuário - tabela <code class="codehilite"><span class="n">roles</span></code>, e</li>
 <li>o vínculo entre o usuário <code class="codehilite">root</code> e o papel <code class="codehilite">Super Usuário</code> na tabela <code class="codehilite"><span class="n">role_user</span></code>.</li>
 </ul>
+<p>Para gerenciar a fila de envio de e-mails utilizando o servidor <a href="https://redis.io">Redis</a>, instale o pacote <code class="codehilite">predis/predis</code>.</p>
+<div class="codehilite"><pre><span></span>composer require predis/predis
+</pre></div>
+
+<p>Para monitorar o serviço de filas, é preciso configurar o <a href="">Supervisor</a>, siga as intruções em <a href="https://laravel.com/docs/5.6/queues#supervisor-configuration">https://laravel.com/docs/5.6/queues#supervisor-configuration</a></p>
 <p>Para concluir a instalação do back-end, execute o comando <code class="codehilite">php artisan passport:install</code> para gerar as chaves de clientes para a criação de tokens para acessoa a API.</p>
 <div class="codehilite"><pre><span></span>php artisan passport:install
 </pre></div>
