@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendUserRegisterMail;
 use App\Models\Role;
 use App\Models\User;
 
@@ -58,6 +59,7 @@ class AuthController extends Controller
         }
 
         $credentials = $request->only('email', 'password');
+        $credentials['account_activated'] = 1;
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
@@ -133,7 +135,7 @@ class AuthController extends Controller
 
         $credentials = $request->only(['name', 'email', 'password']);
         $credentials['password'] = bcrypt($credentials['password']);
-        $credentials['account_hash'] = bcrypt(today());
+        $credentials['account_hash'] = base64_encode($credentials['email']);
 
         DB::beginTransaction();
 
@@ -143,12 +145,36 @@ class AuthController extends Controller
             $user->roles()->attach($role->id);
 
             DB::commit();
-
-            return response()->json([$user], 201);
         } catch (\Exception $e) {
             DB::rollBack();
 
             return response()->json(['message' => 'Internal server error.'], 500);
+        }
+
+        dispatch(new SendUserRegisterMail($user));
+
+        return response()->json([$user], 201);
+    }
+
+    /**
+     *
+     */
+    public function activationUser($token)
+    {
+        $user = User::where(
+            [
+                ['account_hash', '=', $token],
+                ['account_activated', '=', '0']
+            ]
+        )->first();
+
+        if ($user) {
+            $user->account_activated = 1;
+            $user->save();
+
+            return response()->json(['message' => 'Registro confirmado.'], 200);
+        } else {
+            return response()->json(['message' => 'Usuário não cadastrado.'], 404);
         }
     }
 }

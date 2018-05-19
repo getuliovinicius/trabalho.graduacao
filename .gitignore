@@ -3,6 +3,7 @@
 
 # Arquivos
 .lock
+.log
 .bak
 .directory
 keys.md

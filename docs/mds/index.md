@@ -1,7 +1,7 @@
 Orçamento Pessoal - tgGV
 ========================
 
-**Versão:** 0.7.2 - 13/05/2018
+**Versão:** 0.8.0 - 19/05/2018
 
 Sobre o projeto
 ---------------
@@ -15,7 +15,7 @@ Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciad
 !!! important "MONOGRAFIA"
     **Ficou curioso sobre o trabalho?**
 
-    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"). 
+    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"), que está em desenvolvimento. 
 
 Descrição
 ---------
