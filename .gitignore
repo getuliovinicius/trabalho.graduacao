@@ -2,10 +2,10 @@
 /docs/site/
 
 # Arquivos
-.lock
-.log
-.bak
-.directory
+*.lock
+*.log
+*.bak
+*.directory
 keys.md
 
 # Laravel
