@@ -14,7 +14,7 @@ Requisitos para a versão 1.0.0
 
 ### Requisitos da aplicação
 
-Abaixo segue a tabela com a lista de requisitos gerais da aplicação.
+A tabela a seguir exibe a lista de requisitos gerais da aplicação.
 
 | API | Web | Requisito |
 |:---:|:---:|:--------- |
@@ -22,26 +22,26 @@ Abaixo segue a tabela com a lista de requisitos gerais da aplicação.
 | OK  |  -  | A aplicação deve possuir quatro papéis de usuário (Super Usuário, Administrador, Gerente e Usuário). |
 |  -  |  -  | Deve existir apenas um Super Usuário denominado `root` que não poderá ser excluído. |
 | OK  |  -  | Nenhum usuário pode visualizar, alterar, excluir ou criar uma categoria, conta ou lançamento de outro ou para outro usuário. |
-|  -  |  -  | A aplicação deve gerar relatórios do tipo lista de usuários (ativos, inativos, bloqueados) |
-|  -  |  -  | A aplicação deve gerar relatório sintético de contas criadas por período |
+|  -  |  -  | A aplicação deve gerar relatórios do tipo lista de usuários (ativos, inativos, bloqueados). |
+|  -  |  -  | A aplicação deve gerar relatório sintético de contas criadas por período. |
 
 ### Requisitos do usuário do serviço
 
-Esses são os requisitos e regras de negócio da aplicação para usuários que irão criarão uma conta no serviço a fim de realizarem o controle de suas finanças pessoais.
+Esses são os requisitos e regras de negócio da aplicação para usuários que criarem uma conta no serviço a fim de realizarem o controle de suas finanças pessoais.
 
 | API | Web | Requisito |
 |:---:|:---:|:--------- |
 | OK  |  -  | As pessoas que tiverem interesse em usar o serviço devem se cadastrar em um formulário público informando o nome completo, endereço de e-mail e senha. |
 | OK  |  -  | Após realizar seu cadastro na aplicação o usuário deve receber um link no e-mail informado, apontando para o endereço de ativação da conta. |
-| OK  |  -  | Todas as contas para usuários do serviço cadastradas através do formulário público devem ser atribuídas ao papel Usuário. |
+| OK  |  -  | Todas as contas para usuários do serviço, que forem cadastradas através do formulário público, devem ser atribuídas ao papel Usuário. |
 |  -  |  -  | O usuário cadastrado pode alterar sua senha de acesso a aplicação e outros dados pessoais. |
 |  -  |  -  | O usuário cadastrado pode remover seu cadastro do serviço. |
 | OK  |  -  | O usuário cria categorias para organizar as contas. |
 | OK  |  -  | O usuário pode alterar o nome das categorias. |
-| OK  |  -  | O usuário pode excluir uma categoria desde que não existam contas vinculadas a esta categoria. |
+| OK  |  -  | O usuário pode excluir uma categoria desde que não existam contas vinculadas a ela. |
 | OK  |  -  | O usuário cria as contas observando os grupos Ativo, Passivo, Patrimônio Líquido, Receita e Despesa. |
 | OK  |  -  | O usuário pode alterar o nome e a categoria de uma conta. |
-| OK  |  -  | O usuário pode excluir uma conta desde que não existam lançamentos vinculados a esta conta. |
+| OK  |  -  | O usuário pode excluir uma conta desde que não existam lançamentos vinculados a ela. |
 | OK  |  -  | O usuário faz lançamentos nas contas. |
 | OK  |  -  | O usuário pode realizar correções nos lançamentos. |
 | OK  |  -  | O usuário lista as contas com seus respectivos saldos. |

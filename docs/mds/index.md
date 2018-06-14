@@ -10,12 +10,12 @@ Olá!
 
 Meu nome é [Getúlio Vinícius](https://github.com/getuliovinicius "Perfil no GitHub").
 
-Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciado como parte do meu Trabalho de Graduação (monografia) no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.
+Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciado como parte do meu Trabalho de Graduação no curso de Analise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Franca, FATEC Dr. Thomaz Novelino.
 
 !!! important "MONOGRAFIA"
     **Ficou curioso sobre o trabalho?**
 
-    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Ainda em desenvolvimento"), que está em desenvolvimento. 
+    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Versão apresentada para a banca."), que foi entregue para a banca e será apresentada no dia 14/06/2018.
 
 Descrição
 ---------
