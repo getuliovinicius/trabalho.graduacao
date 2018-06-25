@@ -123,7 +123,10 @@ class AuthController extends Controller
     }
 
     /**
+     * Registers a new user in the service.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
     {
