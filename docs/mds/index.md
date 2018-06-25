@@ -1,7 +1,7 @@
 Orçamento Pessoal - tgGV
 ========================
 
-**Versão:** 0.8.0 - 19/05/2018
+**Versão:** 0.8.2 - 24/06/2018
 
 Sobre o projeto
 ---------------
@@ -15,7 +15,11 @@ Orçamento Pessoal - tgGV, é um software livre cujo desenvolvimento foi iniciad
 !!! important "MONOGRAFIA"
     **Ficou curioso sobre o trabalho?**
 
-    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Versão apresentada para a banca."), que foi entregue para a banca e será apresentada no dia 14/06/2018.
+    Você pode ler a [MONOGRAFIA](downloads/monografia.pdf "Versão corrigida após a banca."), que foi apresentada no dia 14/06/2018.
+
+    E também pode assistir a apresentação.
+
+    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgetulio.vinicius%2Fvideos%2F10212301430390904%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 
 Descrição
 ---------
