@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'root',
                 'email' => 'root@localhost',
                 'password' => bcrypt('123456'),
+                'account_activated' => 1,
                 'account_hash' => bcrypt($account_hash)
             ]
         );
